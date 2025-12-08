@@ -1,0 +1,115 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 21 items.
+The style file: ACM-Reference-Format.bst
+Reallocating 'name_of_file' (item size: 1) to 15 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Database file #1: references.bib
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Warning--no number and no volume in aboelmaged2024conversational
+Warning--no number and no volume in achiam2023gpt
+Warning--page numbers missing in both pages and numpages fields in achiam2023gpt
+Warning--empty publisher in aquino2024extracting
+Warning--empty address in aquino2024extracting
+Warning--no number and no volume in arzideh2024miracle
+Warning--page numbers missing in both pages and numpages fields in arzideh2024miracle
+Warning--unusual to have number, but no volume, for aydin2021comparing
+Warning--page numbers missing in both pages and numpages fields in aydin2021comparing
+Warning--no number and no volume in bommasani2021opportunities
+Warning--page numbers missing in both pages and numpages fields in bommasani2021opportunities
+Warning--INFO: reduced pages = [1--10] to numpages = [10]
+Warning--can't use both volume and number fields in chen2024benchmarking
+Warning--empty publisher in chen2024benchmarking
+Warning--empty address in chen2024benchmarking
+Warning--no journal in chen2021evaluating
+Warning--no number and no volume in chen2021evaluating
+Warning--page numbers missing in both pages and numpages fields in chen2021evaluating
+Warning--can't use both volume and number fields in chow2023developing
+Warning--empty publisher in chow2023developing
+Warning--empty address in chow2023developing
+Warning--no number and no volume in comanici2025gemini
+Warning--page numbers missing in both pages and numpages fields in comanici2025gemini
+Warning--no journal in gartlehner2023data
+Warning--no number and no volume in gartlehner2023data
+Warning--page numbers missing in both pages and numpages fields in gartlehner2023data
+Warning--empty publisher in holmes2023chatbot
+Warning--empty address in holmes2023chatbot
+Warning--empty publisher in huang2023retrieval
+Warning--empty address in huang2023retrieval
+Warning--empty publisher in karpukhin2020dense
+Warning--empty address in karpukhin2020dense
+Warning--page numbers missing in both pages and numpages fields in karpukhin2020dense
+Warning--no number and no volume in khalifa2024using
+Warning--empty publisher in liu2024information
+Warning--empty address in liu2024information
+Warning--can't use both author and editor fields in lukka2003cons
+Warning--empty address in lukka2003cons
+Warning--no number and no volume in mahboub2024evaluation
+Warning--page numbers missing in both pages and numpages fields in mahboub2024evaluation
+Warning--no number and no volume in naveed2024
+Warning--page numbers missing in both pages and numpages fields in naveed2024
+Warning--no number and no volume in nijkamp2022codegen
+Warning--page numbers missing in both pages and numpages fields in nijkamp2022codegen
+Warning--page numbers missing in both pages and numpages fields in oubah2024advanced
+Warning--empty publisher in ryu2023retrieval
+Warning--empty address in ryu2023retrieval
+Warning--page numbers missing in both pages and numpages fields in ryu2023retrieval
+Warning--can't use both volume and number fields in sallam2023chatgpt
+Warning--empty publisher in sallam2023chatgpt
+Warning--empty address in sallam2023chatgpt
+Warning--can't use both volume and number fields in thapa2022splitfed
+Warning--empty publisher in thapa2022splitfed
+Warning--empty address in thapa2022splitfed
+Warning--no number and no volume in thomo2024pubmed
+Warning--page numbers missing in both pages and numpages fields in thomo2024pubmed
+Warning--empty publisher in wang2024mememo
+Warning--empty address in wang2024mememo
+You've used 60 entries,
+            5981 wiz_defined-function locations,
+            1836 strings with 33890 characters,
+and the built_in function-call counts, 71383 in all, are:
+= -- 9312
+> -- 3072
+< -- 0
++ -- 1058
+- -- 1085
+* -- 5526
+:= -- 7344
+add.period$ -- 305
+call.type$ -- 60
+change.case$ -- 561
+chr.to.int$ -- 92
+cite$ -- 117
+duplicate$ -- 5623
+empty$ -- 3950
+format.name$ -- 1268
+if$ -- 17268
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 190
+newline$ -- 621
+num.names$ -- 420
+pop$ -- 2276
+preamble$ -- 1
+purify$ -- 1032
+quote$ -- 0
+skip$ -- 2062
+stack$ -- 0
+substring$ -- 4565
+swap$ -- 552
+text.length$ -- 29
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1323
+warning$ -- 58
+while$ -- 346
+width$ -- 0
+write$ -- 1264
+(There were 58 warnings)

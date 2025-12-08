@@ -1,0 +1,1141 @@
+%%
+%% This is file `main.tex' based on `sample-sigconf.tex' (q.v. for spurce of that,
+%%
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the original source file `sample-sigconf.tex'
+%% in the `Sample' folder.
+%%
+%% For distribution of the original source see the terms
+%% for copying and modification in the file samples.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%
+%% Commands for TeXCount
+%TC:macro \cite [option:text,text]
+%TC:macro \citep [option:text,text]
+%TC:macro \citet [option:text,text]
+%TC:envir table 0 1
+%TC:envir table* 0 1
+%TC:envir tabular [ignore] word
+%TC:envir displaymath 0 word
+%TC:envir math 0 word
+%TC:envir comment 0 0
+%%
+%%
+%% The first command in your LaTeX source must be the \documentclass command.
+
+%% NOTE that a single column version is required for 
+%% submission and peer review. This can be done by changing
+%% the \doucmentclass[...]{acmart} in this template to 
+%%\documentclass[manuscript,review,anonymous]{acmart}
+%% This version is used for drafting and final submission
+\documentclass[sigconf]{acmart}
+
+
+%% 
+%% To ensure 100% compatibility, please check the white list of
+%% approved LaTeX packages to be used with the Master Article Template at
+%% https://www.acm.org/publications/taps/whitelist-of-latex-packages 
+%% before creating your document. The white list page provides 
+%% information on how to submit additional LaTeX packages for 
+%% review and adoption.
+%% Fonts used in the template cannot be substituted; margin 
+%% adjustments are not allowed.
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+\setcopyright{acmlicensed}
+\copyrightyear{2024}
+\acmYear{2024}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+%% These commands are for a PROCEEDINGS abstract or paper.
+\acmConference[Hypertext '26]{Proceedings of the ACM Hypertext Conference}{June 2025}{CSPC, Philippines}
+%
+%  Uncomment \acmBooktitle if the title of the proceedings is different
+%  from ``Proceedings of ...''!
+%
+%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
+%  June 03--05, 2018, Woodstock, NY} 
+\acmISBN{978-1-4503-XXXX-X/18/06}
+
+
+%%
+%% Submission ID.
+%% Use this when submitting an article to a sponsored event. You'll
+%% receive a unique submission ID from the organizers
+%% of the event, and this ID should be used as the parameter to this command.
+%%\acmSubmissionID{123-A56-BU3}
+
+%%
+%% For managing citations, it is recommended to use bibliography
+%% files in BibTeX format.
+%%
+%% You can then either use BibTeX with the ACM-Reference-Format style,
+%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
+%% support for advanced citation of software artefact from the
+%% biblatex-software package, also separately available on CTAN.
+%%
+%% Look at the sample-*-biblatex.tex files for templates showcasing
+%% the biblatex styles.
+%%
+
+%%
+%% The majority of ACM publications use numbered citations and
+%% references.  The command \citestyle{authoryear} switches to the
+%% "author year" style.
+%%
+%% If you are preparing content for an event
+%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
+%% citations and references.
+%% Uncommenting
+%% the next command will enable that style.
+%%\citestyle{acmauthoryear}
+
+%%
+%% end of the preamble, start of the body of the document source.
+
+%% % Location of your graphics files for figures, here a sub-folder to the main project folder
+\graphicspath{{./images/}} 
+
+\usepackage{array}
+
+\begin{document}
+
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title{Beyond LLMs: A RAG Chatbot for Efficient Literature Search and Thesis Retrieval in CSPC Library}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+%% Of note is the shared affiliation of the first two authors, and the
+%% "authornote" and "authornotemark" commands
+%% used to denote shared contribution to the research.
+\author{Divino Franco R. Aurellano}
+\email{diaurellano@my.cspc.edu.ph}
+\authornotemark[1]
+\affiliation{%
+  \institution{Camarines Sur Polytechnic Colleges}
+  \city{Nabua, Camarines Sur}
+  \country{Philippines}
+}
+
+\author{Herald Carl N. Avila}
+\email{heavila@my.cspc.edu.ph}
+\authornotemark[2]
+\affiliation{%
+  \institution{Camarines Sur Polytechnic Colleges}
+  \city{Nabua, Camarines Sur}
+  \country{Philippines}
+}
+
+\author{Almira L. Calingacion}
+\email{alcalingacion@my.cspc.edu.ph}
+\authornotemark[3]
+\affiliation{%
+  \institution{Camarines Sur Polytechnic Colleges}
+  \city{Nabua, Camarines Sur}
+  \country{Philippines}
+}
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+\renewcommand{\shortauthors}{Aurellano, Avila, and Calingacion}
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\begin{abstract}
+  This study presents the development of a Retrieval-Augmented Generation (RAG) chatbot designed to enhance literature search and thesis retrieval within the CSPC Library. By integrating advanced natural language processing techniques with a robust retrieval system, the chatbot aims to provide users with efficient access to academic resources. The system leverages large language models (LLMs) to understand user queries and retrieve relevant documents from the library's database. 
+  "Findings"
+
+\end{abstract}
+
+%%
+%% The code below is generated by the tool at: http://dl.acm.org/ccs.cfm
+%% Please copy and paste the code instead of the example below.
+%%
+\begin{CCSXML}
+<ccs2012>
+ <concept>
+    <concept_id>10010147.10010257</concept_id>
+    <concept_desc>Information systems~Information retrieval</concept_desc>
+    <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+    <concept_id>10010147.10010371</concept_id>
+    <concept_desc>Information systems~Retrieval-Augmented Generation</concept_desc>
+    <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+    <concept_id>10003752.10010922</concept_id>
+    <concept_desc>Theory of computation~NLP</concept_desc>
+    <concept_significance>300</concept_significance>
+ </concept>
+ <concept>
+    <concept_id>10010147.10010341</concept_id>
+    <concept_desc>Information systems~Search interfaces</concept_desc>
+    <concept_significance>300</concept_significance>
+ </concept>
+ <concept>
+    <concept_id>10010147.10010206</concept_id>
+    <concept_desc>Information systems~Document and content analysis</concept_desc>
+    <concept_significance>200</concept_significance>
+ </concept>
+ <concept>
+    <concept_id>10010147.10010178</concept_id>
+    <concept_desc>Information systems~Question answering</concept_desc>
+    <concept_significance>200</concept_significance>
+ </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Information systems~Information retrieval}
+\ccsdesc[500]{Information systems~Retrieval-Augmented Generation}
+\ccsdesc[300]{Theory of computation~Neural networks}
+\ccsdesc[300]{Information systems~Search interfaces}
+\ccsdesc[200]{Information systems~Document and content analysis}
+\ccsdesc[200]{Information systems~Question answering}
+
+
+%%
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+\keywords{RAG, Chatbot, Literature Search, Thesis Retrieval, CSPC Library}
+
+%% The following are not a requirement, delete if not using
+\received{20 February 2025}  %% inital submission date
+\received[revised]{20 October 2025} %% interim new draft
+\received[accepted]{9 December 2025}  %% publication version
+
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+\section{Introduction}
+
+This chapter provides an overview of the study, covering the challenges of the campus library, the study’s objectives, and its significance. It defines the problem, outlines research goals, and highlights the proposed system’s potential impact. The scope and limitations clarify its boundaries, while the project dictionary and notes offer essential terms and supporting details. 
+
+\subsection{Background of the Problem}
+
+Large Language Models (LLMs) such as OpenAI's ChatGPT \cite{achiam2023gpt}  and gemini \cite{lee2025gemini} have made significant advancements in Natural Language Processing (NLP) by excelling in diverse tasks such as semantic search, classification, and clustering, providing more accurate, context-aware results than keyword-based approaches.
+\cite{nijkamp2022codegen,chen2021evaluating} In addition, these advancements have benefited various fields, including academic research. However, LLM responses can depend heavily on the data on which the model was trained, and they cannot retrieve real-time or external information beyond their pre-trained knowledge. This makes them less effective for tasks that require up-to-date, specific institutional data, such as retrieving current academic resources in university libraries \cite{liu2024information}.
+
+Writing an academic paper requires a deep understanding of the subject and a significant amount of related literature for credible evidence, which can be challenging and time-consuming \cite{khalifa2024using}. It is essential to first visit the university library to search and gather existing related literature significant to the researcher’s study.  However, most libraries today still operate in traditional, non-digital formats where materials are only accessible on-site, making the process of finding and retrieving resources more difficult. 
+
+Furthermore, some school libraries offer limited access and prohibit users from taking home thesis papers. These challenges significantly delay the progress of future academic research due to limited access to relevant literature in university libraries \cite{prajapat2022comparative}. 
+
+To address retrieval issues, several universities in the Philippines have recognized the importance of adopting digital archiving systems to improve academic access. This becomes more evident in the last previous year before covid-19 pandemic, when researchers were unable to access library resources, prompting libraries to adapt and make resources accessible even remotely. However, digitalization alone does not fully solve the problem \cite{aydin2021comparing, lagas2023challenges, prajapat2022comparative}. Unfortunately, most digitalized libraries today still use outdated search systems that need an exact keyword search, which can result in irrelevant materials \cite{setiyani2023increasing}. The current search mechanism of this digital archives including the Camarines Sur Polytechnic Colleges (CSPC) library still heavily depends on traditional keyword-matching algorithms. If users do not input the exact title or precise keywords, the system returns "not found" even when relevant content exists. This limitation highlights a deeper issue in search functionality, where vague or topic-based queries cannot retrieve appropriate materials, thereby hindering access to valuable research. This inefficiency in retrieval presents a serious barrier for the academe community,  particularly when conducting time-sensitive or exploratory academic work.
+
+These challenges of university libraries in the Philippines, including the CSPC library, have shared difficulties in accessing academic resources, outdated search systems, and ineffective information retrieval that affect the efficiency of academic research. While numerous studies have also explored the integration of the emerging LLM-powered chatbots in academic research \cite{aboelmaged2024conversational}, their implementation and effect for thesis retrieval in specific university libraries, including CSPC, have not been established. This is primarily due to the limitations of LLMs, which rely solely on pre-trained knowledge and are unable to access or utilize the unique local archives maintained by individual libraries \cite{bommasani2021opportunities, strich2024improving}.
+
+To overcome these challenges, Retrieval-Augmented Generation (RAG) has emerged as a superior approach \cite{lewis2020retrieval}. Unlike standalone LLMs, which require retraining and additional domain-specific data to adjust LLM weights, RAG presents an advanced approach by retrieving relevant external information to generate responses and holds significant practical implications for university libraries by improving search functionalities. Additionally, RAG ensures that the most relevant academic resources are retrieved quickly and straightforwardly, making it suitable for libraries with expansive collections of academic papers that are difficult for researchers and students to navigate \cite{wang2024mememo, huang2023retrieval}.
+
+This thesis developed an enhanced LLM-powered chatbot with the integration of the Retrieval-Augmented Generation (RAG) technique to improve information retrieval, especially in literature search and thesis retrieval of university-owned thesis PDFs at the Camarines Sur Polytechnic Colleges (CSPC) Library. This chatbot application generates answers and retrieve relevant documents based on the user's prompt.
+
+
+\subsection{Statement of the Problem}
+
+Finding relevant thesis literature in a University's library, such as in CSPC, can be challenging. Many researchers in the academic community struggle to find the exact thesis paper they need, often requiring them to travel and physically visit the library just to retrieve specific documents.
+
+Currently, CSPC’s library website [25] only allows users to search by exact document title. Finding relevant research becomes difficult if users don’t know the exact title. Furthermore, library policies restrict users from taking thesis books outside the premises, limiting accessibility to essential academic resources. In response to these challenges, this study aims to explore creating a chatbot that eliminates those limitations by enabling searches based on topics, keywords, or even general descriptions. Additionally, the goal is to make this accessible everywhere.
+
+This goal, with the use of the Retrieval Augmented Generation (RAG) algorithm, will revolutionize how the academe community interacts with the CSPC library, making research faster, smarter, and more user-friendly. By bridging the gap between traditional archiving and modern AI-driven retrieval, the system ensures that valuable institutional knowledge is readily accessible to all. 
+
+
+\subsection{Objectives of the Study}
+The objectives of this study are divided into two categories: general and specific. The general objective defines the overall goal of the study, while the specific objectives break down this goal into measurable and achievable steps. These objectives ensure a structured approach to developing an enhanced LLM chatbot for Camarines Sur Polytechnic Colleges. 
+
+\subsubsection{General Objective}
+The general objective of this study is to develop a chatbot for  Camarines Sur Polytechnic Colleges (CSPC) library, using Retrieval-Augmented Generation (RAG) to enhance thesis retrieval and literature search in CSPC Library, replacing the traditional keyword-based search with a more conversational and topic-oriented search and response approach.
+
+\subsubsection{Specific Objectives}
+
+To achieve the general objective, the study sets the following specific objectives:
+\begin{enumerate}
+
+    \item To integrate a document ingestion and retrieval module for storing thesis documents.
+    \item To implement a semantic search and thesis document retrieval system using RAG and Google Gemini.
+    \item To evaluate the performance of the RAG chatbot using RAGASS and user satisfaction metrics.
+
+\end{enumerate}
+
+
+\subsection{Significance of the Study}
+
+The result of this study will benefit the following:
+
+\bigbreak
+\noindent \textbf{Students.}  By integrating semantic search and retrieval capabilities, the chatbot can significantly improve search accuracy and efficiency, reducing the time spent on literature review. This can enable students and researchers to quickly find relevant studies without relying solely on exact keywords or titles.
+
+\bigbreak
+\noindent \textbf{Faculty Members.}  The chatbot can serve as a research aid for faculty members by providing easier access to relevant studies. This can enhance their ability to aid students in thesis writing, academic guidance, and collaborative research work, while at the same time reducing the extent of manual effort in literature searching.
+
+\bigbreak
+\noindent \textbf{CSPC Library Management.} The implementation of a RAG-powered chatbot can modernize the library’s digital infrastructure, making academic resources more accessible to users. By automating thesis retrieval and search functions, the system can improve library service and optimize resource utilization.
+
+\bigbreak
+\noindent \textbf{Researchers.} The study can contribute to the field of AI-driven academic search and retrieval, providing insights into the practical applications of Retrieval-Augmented Generation (RAG). Future researchers can build on this work by exploring ways to further optimize search relevance, retrieval efficiency, and integration with other AI models.
+
+\bigbreak
+\noindent \textbf{Future Developers.} This study serves as a technical reference for students and developers interested in Natural Language Processing and Large Language Models. The architectural design and implementation details can guide future software development projects within the college.
+
+
+\subsection{Scope and Limitation}
+
+The scope of this study is to develop a chatbot for the Camarines Sur Polytechnic Colleges (CSPC) library, utilizing Retrieval-Augmented Generation (RAG) with Google Gemini LLM. The goal is to address the challenges faced by the academic community in searching and retrieving thesis literature by replacing the current yet traditional keyword-based search with a more conversational and topic-oriented approach. This will be done through a website with access control, allowing administrators to upload newly published PDF theses and users to register using their CSPC email. Additionally, the system is intended to be deployed to the cloud
+
+There are certain limitations to consider in this study. First, the researchers will focus only on utilizing the available PDF copies of undergraduate theses that have already been published. Second, the chatbot’s accuracy will depend on the quality and structure of thesis records, and on the clarity and relevance of the user's prompts. Additionally, computational efficiency may depend on the configuration and resources allocated in the cloud environment, which could affect the chatbot’s real-time processing capabilities. Finally, while the RAG technique can reduce hallucination, users are advised to validate the outputs carefully as occasional inaccuracies or fabricated information may still occur. 
+
+\subsection{Project Dictionary}
+
+The Project Dictionary contains the technical terms that defined the conceptual and operation of this study:
+
+\begin{itemize}
+
+    \item \textbf{Academic Literature Retrieval.} The process of systematically searching for and obtaining scholarly documents, such as research papers and theses, to support academic work \cite{sallam2023chatgpt}. In this study, the implementation of LLMs is essential to improve the retrieval of academic literature.
+
+    \item \textbf{Chatbot.} An AI-powered conversational agent designed to interact with users in natural language, providing assistance, answering queries, and facilitating access to information in a user-friendly manner \cite{chow2023developing}. In this study, chatbots will be implemented for answering questions with human-like responses.
+
+    \item \textbf{CSPC Library.} The Camarines Sur Polytechnic Colleges (CSPC) Library serves as the primary academic resource center for students and faculty. It offers access to a diverse collection of books and theses inside the premises. The library has initiated steps toward digitalization, providing an online catalog for users to search materials. In this study, the CSPC Library is examined to assess its current digital infrastructure and explore enhancements to improve information retrieval and user experience.
+
+    \item \textbf{Google Gemini.} A state-of-the-art Large Language Model (LLM) developed by Google, designed to understand and generate human-like text based on extensive training data \cite{lee2025gemini}. In this study, Google Gemini was utilized as the core LLM for implementing the RAG technique to enhance information retrieval and response generation in the chatbot system.
+
+    \item \textbf{Generative AI.} A kind of artificial intelligence that may produce original text, graphics, or code, frequently in response to a user-inputted prompt. More and more online applications and chatbots that let users enter instructions or inquiries into an input box are using its models. The AI model will produce a response in the output field that resembles a human response \cite{bozkurt2024genai}. In this study, the implications of Generative AI in the context of education and academic integrity will be examine.
+
+    \item \textbf{Large Language Models (LLMs).} AI models trained on vast text datasets to understand and generate human-like responses. They excel in natural language tasks but struggle with retrieving real-time and domain-specific information \cite{klang2024advancing}. In this study, the implementation of the Large Language Model (LLM) streamlines access to information, assists in literature searches, and facilitates query handling effectively.
+
+    \item \textbf{Natural Language Processing (NLP).} A subfield of artificial intelligence (AI) called natural language processing (NLP) makes it possible for computers to comprehend and understand spoken, written, or even handwritten human language. NLP is essential to enabling seamless and organic human-computer interactions as AI-driven technologies grow more pervasive in daily life \cite{ramirez2024natural}. In this study, NLP significantly improves machine comprehension to understand human language and improves user interaction through chatbots.
+
+    \item \textbf{Retrieval-Augmented Generation (RAG).} An AI framework that enhances LLMs by incorporating an external knowledge retrieval mechanism, improving the accuracy and contextual relevance of generated responses \cite{lewis2020retrieval}. In this study, RAG was developed for navigating and retrieving information from large amounts of academic papers.
+
+    \item \textbf{Semantic Search.} A search approach that goes beyond keyword matching by understanding the intent and contextual meaning of queries to return more relevant results \cite{mahboub2024evaluation}. In this study, semantic search will significantly improve the performance of RAG in generating relevant and contextual responses due to the enhanced retrieval process by understanding user queries which is beneficial for the CSPC library that holds a large collection of academic papers.
+   
+\end{itemize}
+
+\section{Related Literature and Studies}
+
+This chapter presents the analysis of relevant literature and existing systems associated with the study. It includes a summary of related works, a synthesis of the state of-the-art technologies and methodologies, and identifies the research gaps addressed by the current study.
+
+\subsection{Review of Related Literature and Studies}
+To develop a deeper understanding of the research topic, a comprehensive review of books, scholarly articles, journals, and previous thesis projects was conducted. The findings are organized thematically to align with the key areas of the study.
+
+\subsubsection{Large Language Models}
+Large Language Models (LLMs) have significantly improved the use case of information retrieval (IR) within academic settings. The integration of LLMs, like ChatGPT and other model architectures, offers notable advancements in natural language processing (NLP) and also proves its capabilities to enhance IR, question-answering, summarization, and content generation, which benefits academic environments where efficient access to information is crucial \cite{yalamanchili2024quality} \cite{yang2023large}. For instance, the recent studies of \citeauthor{khraisha2024can} \citeyear{khraisha2024can} and \citeauthor{gartlehner2023data} \citeyear{gartlehner2023data} reveal that LLMs are capable of automating processes like systematic review, data extraction, and document screening, which demonstrate the capability and potential of LLMs in enhancing the efficiency of academic research \cite{khraisha2024can}  \cite{gartlehner2023data}.
+
+While large language models (LLMs) offer advantages for information retrieval, they also come with challenges. One major challenge is that their inefficient when applied to domain-specific tasks that require specialized knowledge. This limitation occurs because of the models' dependency on their pre-trained knowledge, which limits them from providing factual answers for specific domains, like in Academe. Omar et al. discussed that LLMs, such as ChatGPT, serve as complementary tools in specialized scenarios but may struggle with complex queries due to a lack of exposure to field-specific training data \cite{khraisha2024can}. Additionally, pre-trained LLMs encounter challenges in keeping up with constant expansions of data in various domains, which makes them incapable of updating their knowledge without extensive fine-tuning. Lucas et al. highlighted that for applications in academic and professional settings, the inability of LLMs to access current domain-specific repositories reduces their effectiveness and utility \cite{gartlehner2023data}.
+
+While LLMs stand at the forefront of NLP innovation, substantial limitations arise in their application to domain-specific tasks. These include real-time data retrieval, pre-trained knowledge bases, and ethical considerations surrounding data privacy. Addressing these challenges through innovative approaches like RAG can help leverage the models' capabilities, ensuring they can meet the rigorous demands of specialized applications.
+
+
+\subsubsection{Retrieval-Augmented Generation}
+\bigbreak
+Retrieval-Augmented Generation (RAG) has conveyed notable progress in information retrieval (IR), especially in the context of literature search and thesis retrieval in library systems \cite{thomo2024pubmed}. The concept integrates traditional large language models (LLMs) with external knowledge sources to enhance response relevance, richness, and correctness \cite{chen2024benchmarking}.
+
+\citeauthor{lewis2020retrieval} \citeyear{lewis2020retrieval}, in their influential study "Retrieval-Augmented Generation for Knowledge Intensive NLP Tasks," emphasized that RAG enables more precise responses by overcoming the inherent limitations of LLMs, particularly regarding accurate knowledge retrieval and contextual relevance. Extending this, \citeauthor{shuster2021retrieval} \citeyear{shuster2021retrieval}, in their study "Retrieval Augmentation Reduces Hallucination in Conversation," showed that RAG reduces inconsistencies and hallucinations in LLM responses. Their findings indicated that RAG mechanisms significantly improved conversational fluency and integrity, especially in open-domain contexts, resulting in more knowledgeable and coherent outputs.
+
+ \citeauthor{sagi2024genai} \citeyear{sagi2024genai}, study "GENAI: RAG Use Cases with Vector DB to Solve the Limitations of LLMs," further reinforced this by demonstrating that combining vector databases with RAG significantly enhances retrieval speed and relevance. Particularly in dynamic domains like academic and business libraries, the semantic search capabilities of vector databases support continuous real-time updates, greatly improving knowledge management and the factuality of generated responses. Thus, RAG not only strengthens the retrieval capabilities of LLMs but also substantially mitigates their traditional weaknesses in consistency and factual accuracy \cite{sagi2024genai}.
+
+\subsubsection{Document Ingestion and Retrieval}
+\bigbreak
+
+The performance of Retrieval Augmented Generation (RAG) systems depends on efficient document use and retrieval procedures, especially when working with large, complicated datasets like academic libraries. Any type of data source, including text, video, images, and audio, can be used with retrieval-augmented generation (RAG) systems, allowing for flexible and contextually rich information retrieval. In this study, the researchers focused on utilizing PDF documents as the primary corpus for academic content extraction \cite{li2023extracting}. 
+
+The effectiveness of RAG systems heavily depends on the quality of preprocessing, which involves converting unstructured PDF data into machine-readable formats suitable for embedding and semantic search \cite{arzideh2024miracle} \cite{aquino2024extracting}. Tools such as PyPDF2, PyMuPDF, and pypdfium are commonly employed for this task, enabling the extraction of raw text from complex PDF layouts \cite{adhikari2024comparative}.
+
+ \citeauthor{sagi2024genai} \citeyear{sagi2024genai}, study "GENAI: RAG Use Cases with Vector DB to Solve the Limitations of LLMs," further reinforced this by demonstrating that combining vector databases with RAG significantly enhances retrieval speed and relevance. Particularly in dynamic domains like academic and business libraries, the semantic search capabilities of vector databases support continuous real-time updates, greatly improving knowledge management and the factuality of generated responses. Thus, RAG not only strengthens the retrieval capabilities of LLMs but also substantially mitigates their traditional weaknesses in consistency and factual accuracy \cite{sagi2024genai}.
+
+ \citeauthor{adhikari2024comparative} \citeyear{adhikari2024comparative} evaluated several PDF parsers using F1 score, BLEU-4, and local alignment across diverse document categories. Their study revealed that PyMuPDF and pypdfium consistently preserved sentence structure and layout more accurately than other tools. These capabilities are essential for maintaining the necessary semantic coherence for accurate vectorization and retrieval. They also highlighted parsing difficulties in complex documents such as scientific and patent PDFs, where rule-based tools struggled while transformer-based models demonstrated significant improvements. Moreover, efficient document ingestion and retrieval are crucial in managing large repositories such as academic libraries \cite{adhikari2024comparative}.
+
+According to \citeauthor{zhang2023automated} \citeyear{zhang2023automated}, automated ingestion pipelines that parse and store documents in a searchable index improve the discoverability and accessibility of scholarly content. 
+
+Techniques like optical character recognition (OCR), metadata extraction, and structured indexing are often applied to thesis repositories to facilitate retrieval operations \cite{zhang2023automated}. Similarly, \citeauthor{karpukhin2020dense} \citeyear{karpukhin2020dense} emphasized the importance of pre-processing, chunking, and embedding documents for semantic search in their work on Dense Passage Retrieval (DPR), informing modern RAG pipelines \cite{karpukhin2020dense}. Typically, the ingestion process involves multiple steps: (1) text extraction using tools like PyMuPDF or pypdfium, (2) text chunking into smaller, logical parts, and (3) embedding using models like Sentence-BERT. Finally, these vectors are stored in specialized vector databases such as FAISS, Pinecone, or FAISS for efficient retrieval during user queries. Efficient document ingestion and storage directly influence retrieval accuracy, system responsiveness, and user experience. Sagi emphasized that robust ingestion and vectorization processes ensure that relevant information can be retrieved quickly and that RAG models generate highly accurate, contextually rich responses, especially in dynamic environments like academic libraries \cite{karpukhin2020dense}.
+
+\citeauthor{deepak2025langchain} \citeyear{deepak2025langchain}, in their study "Langchain-chat with my pdf" highlighted the significance of vectorization techniques such as embedding and chunking in processing PDFs. Their research illustrated how chunking aids the RAG framework in identifying relevant sections of documents during user queries, streamlining the management of comprehensive PDF-based information, and enhancing the system's semantic search capabilities \cite{deepak2025langchain}.
+
+In conclusion, the studies collectively highlight that robust preprocessing, ingestion, and vectorization processes are foundational for bridging the gap between static document repositories and real-time information retrieval, demonstrating the potential of RAG architectures in managing large collections of academic knowledge \cite{allu2024beyond} \cite{aquino2024extracting}.
+
+\bigbreak
+\subsubsection{RAG Applications in Various Domains}
+
+Beyond academic contexts, RAG frameworks are increasingly being applied to specialized domains such as legal research, medical retrieval, and scientific literature search, highlighting their wide versatility and impact.
+
+In the academic domain, \citeauthor{grigoryan2024building} \citeyear{grigoryan2024building}, in their study "Building a Retrieval-Augmented Generation (RAG) System for Academic Papers," developed a RAG-powered system that significantly enhanced academic literature retrieval using vector search techniques like cosine similarity and HNSW indexing \cite{grigoryan2024building}. Similarly, \citeauthor{song2024travelrag} \citeyear{song2024travelrag} emphasized that RAG frameworks not only improve search capability but also boost academic outputs by integrating external knowledge into LLMs, leading to more accurate and efficient information retrieval for students and researchers \cite{song2024travelrag}. Their findings align with those of \citeauthor{karpukhin2020dense} \citeyear{karpukhin2020dense}, who also reported that better information retrieval accuracy correlates with improved search results and question-answering performance \cite{karpukhin2020dense}.
+
+
+In the healthcare domain, \citeauthor{arzideh2024miracle} \citeyear{arzideh2024miracle}, in "MIRACLE - Medical Information Retrieval using Clinical Language Embeddings for Retrieval Augmented Generation at the Point of Care," demonstrated the effectiveness of RAG systems integrated with domain-specific clinical embeddings \cite{arzideh2024miracle}. Their approach greatly improved clinical decision-making, supported efficient documentation workflows, and offered greater personalization in healthcare information access. Supporting this, \citeauthor{amugongo2024retrieval} \citeyear{amugongo2024retrieval} showed that RAG systems could successfully retrieve external medical data to generate highly accurate, reliable responses, surpassing traditional LLM limitations \cite{amugongo2024retrieval}.
+
+In the legal field, \citeauthor{aquino2024extracting} \citeyear{aquino2024extracting}, in their study "Extracting Information from Brazilian Legal Documents with Retrieval Augmented Generation," illustrated that RAG systems significantly optimize legal research by speeding up case law retrieval and improving the authenticity and contextual accuracy of outputs \cite{aquino2024extracting}. 
+
+% Similarly, \citeauthor{ryu2023retrieval} \citeyear{ryu2023retrieval}, in "Retrieval-Augmented Generation for Legal Question-Answering," validated RAG's effectiveness in legal question-answering tasks, demonstrating that RAG-enhanced models outperformed standard LLMs in accuracy and relevance when addressing complex legal queries \cite{ryu2023retrieval}.
+
+Finally, recent advancements such as Google Gemini, a state-of-the-art LLM, demonstrate that when integrated with RAG mechanisms \citeauthor{prabhulal2025ragpipeline} \citeyear{prabhulal2025ragpipeline}, LLMs can attain improved semantic understanding and retrieval precision \cite{prabhulal2025ragpipeline}. In parallel, vector search offers a robust foundation for developing intelligent, document-aware systems. By combining high-quality semantic embeddings with indexing, this approach ensures that responses remain accurate, transparent, and firmly anchored in domain-specific data rather than relying solely on general model knowledge.
+
+
+\bigbreak
+\subsubsection{Evaluation of Retrieval-Augmented Generation (RAG) Systems}
+
+The evaluation of Retrieval-Augmented Generation (RAG) systems requires more specialized approaches than traditional large language model (LLM) benchmarks. RAGAS (Retrieval-Augmented Generation Assessment Scores) provides a structured methodology for assessing retrieval precision, context relevance, and the faithfulness of generated responses (RAGAS Documentation). Studies such as those by \citeauthor{shuster2021retrieval} \citeyear{shuster2021retrieval} have demonstrated that retrieval quality significantly impacts user satisfaction and perceived reliability of conversational AI, particularly in academic settings. Thus, specialized evaluation frameworks are crucial for ensuring the effectiveness of RAG systems \cite{shuster2021retrieval}.
+Building upon the need for specialized evaluation, metrics specifically designed for RAG models play a pivotal role. The RAGAS evaluation framework is widely utilized, emphasizing primary metrics such as Context Recall, Faithfulness, and Response Relevance to measure how well the retrieved documents support the generated response \cite{roychowdhury2024evaluation}.
+Context Precision measures the proportion of relevant chunks in the retrieved contexts, while Context Recall ensures that essential information is not omitted. Faithfulness evaluates the factual consistency between generated responses and the retrieved documents, and Response Relevance assesses whether the response addresses the user's query \cite{aquino2024extracting} \cite{deepak2025langchain}.
+
+However, though automated measures are reliable, they frequently fail to assess qualitative aspects like consistency, fluency, and general user happiness.
+ 
+\citeauthor{sivasothy2024ragprobe} \citeyear{sivasothy2024ragprobe} noted that human assessment is still necessary to improve these systems and take into account factors that automated approaches can ignore \cite{sivasothy2024ragprobe}.
+
+
+\subsection{Synthesis of the State-of-the-Art}
+
+The related literature and systems discussed have substantial relevance to the problem of the study. To have a clear understanding of this literature and studies, the researchers made a synthesis in the succeeding discussions.
+
+
+Large Language Models (LLMs) with integrated RAG techniques have greatly improved the knowledge-intensive NLP tasks, overcoming LLMs' challenges. Studies \cite{thapa2022splitfed} and \cite{thomo2024pubmed} underline how combining RAG with LLMs significantly improves accuracy and coherence in conversations and complex queries. The advantage of this technique enables LLMs to retrieve relevant external data, reducing hallucinations and improving factual consistency. Furthermore, the study \cite{lewis2020retrieval} highlighted the use of vector databases for continuous information adaptation integrated with RAG, greatly enhancing retrieval efficiency and relevancy of LLM outputs, which is essential for literature search and thesis retrieval in university libraries.
+
+
+The application of RAG in various domains is addressed in numerous studies. For instance, the study by \citeauthor{arzideh2024miracle} \citeyear{arzideh2024miracle} incorporates clinical language embeddings within RAG to improve healthcare information retrieval, while the study by \citeauthor{grigoryan2024building} \citeyear{grigoryan2024building}, "Building a Retrieval-Augmented Generation (RAG) System for Academic Papers," presents a system that enhances academic retrieval using vector search. Additionally, \citeauthor{aquino2024extracting} \citeyear{aquino2024extracting} employs RAG for effectively extracting and analyzing Brazilian legal documents, and \citeauthor{ryu2023retrieval} \citeyear{ryu2023retrieval} validates RAG’s effectiveness in legal question-answering tasks. Moreover, Google Gemini, when integrated with a RAG mechanism and supported by vector search, can achieve enhanced semantic understanding, retrieval precision, and responses that are accurate, explainable, and grounded in domain-specific data.
+
+
+The findings from these various studies demonstrate RAG's flexibility, highlighting its potential to transform how university libraries handle searches and improve access to academic papers.
+
+Evaluation metrics are important for evaluating the performance of RAG in retrieving and generating accurate responses. Specific metrics of RAGAS, such as Context Precision, Faithfulness, and Answer Relevance, as emphasized in the studies \cite{sagi2024genai} and \cite{arzideh2024miracle}, ensure the authenticity and consistency of the generated outputs of the model. Despite the effectiveness of automated metrics, human evaluation remains important in assessing coherence and user satisfaction, as mentioned in this study \cite{aquino2024extracting}.
+
+ In summary, Retrieval-Augmented Generation (RAG) integrated in Large Language Models (LLMs) presents a groundbreaking method for improving literature searches and thesis retrieval in university libraries, especially at CSPC library. By examining the limitations and obstacles faced by traditional LLMs, the integration of RAG reveals its promise to transform research accessibility at the CSPC library.
+
+\subsection{Gap Bridge of the Study}
+
+% in first gap, the gap of the papers you put in the RRL chapter. Second gap, your reason of ur gap
+
+Existing studies have extensively explored the capabilities of Retrieval-Augmented Generation (RAG) systems in various domains, including healthcare, legal research, and academic literature retrieval. However, there is a notable gap in the literature regarding the specific application of RAG systems within academic libraries, particularly in enhancing literature search and thesis retrieval processes. While previous research has demonstrated the effectiveness of RAG in improving information retrieval, there is limited implementation in the context of university libraries, where unique challenges and requirements exist.
+
+This study aims to bridge this gap by developing a RAG-based chatbot system specifically designed for the CSPC library. By focusing on the unique challenges and requirements of academic libraries, this research seeks to contribute valuable insights into the effective implementation of RAG systems in enhancing information retrieval.
+
+
+
+
+\section{Methodology}
+
+This chapter discusses the specific steps and logical procedures that was employed to develop and evaluate the Retrieval-Augmented Generation (RAG)-based Large Language Model (LLM) chatbot system. This includes the research design, theoretical and mathematical framework, software and hardware tools, instruments, procedures, evaluation metrics, and a conceptual framework.
+
+\subsection{Research Design}
+
+% Constructive research design is a strategy for creating new constructs or systems that build on existing knowledge, concepts, or methods to address specific problems or challenges. It involves developing innovative solutions by combining and adapting well-established theories, techniques, and models to solve real-world problems. This design often relies on a combination of existing tools, knowledge, and frameworks, where researchers adapt and reassemble them into novel constructs or systems. In this process, the research seeks not only to develop theoretical understanding but also to create practical, tangible, functional solutions that can be implemented in real-world settings. This design is particularly relevant in fields where continuous innovation and development are required and where applying existing knowledge to new contexts can lead to breakthroughs in solving emerging problems \cite{crnkovic2010}.
+
+% The constructive research approach is a research procedure for producing innovativeconstructions, intended to solve problems faced in the real world and, by that means, to
+% make a contribution to the theory of the discipline in which it is applied.
+
+Constructive research design focuses on designing and building technological artifacts to address real-world problems and evaluating their practical utility \citeauthor{lukka2003cons} \citeyear{lukka2003cons}. This methodology is particularly well-suited to fields like information systems and artificial intelligence, where the goal is not only theoretical insight but also the creation of innovative, functional systems \cite{lukka2003cons}.
+
+This study adopted a construcive research design where the primary artifact was a Retrieval-Augmented Generation (RAG)-based chatbot integrated with a Large Language Model (LLM). The system was designed to revolutionize how the academe community interacts when finding thesis literature in CSPC library. It addresses the challenges faced in searching and retrieving thesis literature by replacing the current yet traditional database and keyword based search with a vector database and a RAG framework, enabling a conversational and topic-oriented approach. Furthermore, the system was deployed to the cloud, allowing students to access thesis everywhere they are, since current library policies restrict users from taking physical thesis books outside the premises.
+% making research faster, smarter, and more user-friendly. It incorporated semantic search using vector embeddings, enabling the RAG chatbot to generate contextually relevant and factually grounded responses for user queries. 
+
+% And also functionalities such as CSPC email authentication for user verification, query history tracking for an improved user experience, and retraining support to adapt to future academic datasets.
+% These features highlight the system's real-world relevance, sustainability, and potential for long-term utility \cite{hevner2004design}.
+
+% The system was developed using Streamlit, which allows for the rapid deployment of an interactive user interface. The backend combines vector databases and state-of-the-art LLMs, demonstrating how retrieval and generation components can be effectively integrated to improve access to academic resources. The core data ingestion and experimentation were implemented in a dedicated Jupyter Notebook (\texttt{ingest\_off.ipynb}). This notebook was used to perform structured, token-based chunking aligned with thesis sections, experiment with different embedding models to optimize semantic representation, and visualize the resulting vector space. LangChain was used to orchestrate the final pipeline, with FAISS serving as the vector store for efficient retrieval.
+
+
+\subsection{Theorems, Algorithms, and Mathematical Models}
+
+This study implemented advanced machine learning techniques, natural language processing (NLP) models, and the Retrieval-Augmented Generation (RAG) pipeline, integrated with a Large Language Model (LLM) and a vector database. These components collaboratively enabled efficient information retrieval and generation in the context of literature and thesis search within the CSPC Library.
+
+\subsection{Retrieval-Augmented Generation (RAG) Pipeline}
+
+The Retrieval-Augmented Generation (RAG) pipeline is a hybrid architecture that combines information retrieval with natural language generation. It allows LLMs to access external documents during inference, thereby improving both accuracy and contextual relevance.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/rag.png}
+    \caption{Basic RAG Pipeline by Dr. Julija}
+    \label{fig:rag}
+\end{figure}
+
+The chatbot’s RAG pipeline, as illustrated in \ref{fig:rag}, consists of the following key stages:
+
+\subsubsection{A. Data Indexing}
+
+The data indexing process begins with document preparation, where thesis documents are collected and preprocessed into smaller, semantically coherent chunks using a token-based method that respects academic structure (e.g., Abstract; Chapters 1–5) to preserve context. Each chunk is then converted into a dense vector using the open-source `sentence-transformers/all-MiniLM-L6-v2` model from Hugging Face, which was chosen for its lightweight architecture and strong semantic representation capabilities. Finally, these vectors and their associated metadata are stored in FAISS, enabling efficient similarity search and scalable retrieval over the entire thesis corpus.
+
+\subsubsection{B. Retrieval and Generation}
+
+The retrieval and generation process begins with query processing, where a user's query is embedded using the same model employed for indexing. A FAISS-backed retriever then performs a semantic search to return the top-$K$ most relevant chunks (default $K=6$), balancing precision and recall. Finally, during contextual generation, these retrieved chunks are provided to the Gemini 2.5-flash language model as grounded context, enabling the generation of relevant and factual responses aligned with the source documents.
+
+\subsection{Large Language Model}
+
+Large Language Models (LLMs) are cutting-edge AI systems trained on massive datasets to process and generate text, excelling in tasks like summarization, question answering, and retrieval \citeauthor{naveed2024} \citeyear{naveed2024}. This study utilized Gemini 2.5-flash.
+
+\subsection{Gemini 2.5-flash}
+
+The large language model integrated in this project is Gemini 2.5 Flash, part of the Gemini 2.X model family introduced by \citeauthor{comanici2025gemini} \citeyear{comanici2025gemini}. It delivers advanced reasoning, multimodal support, extended context windows, and agentic workflows. Its architecture optimizes factual accuracy and relevance while minimizing latency. Incorporated into a RAG framework, it enhances domain-specific retrieval for CSPC Library users, leveraging its real-time, cost-effective capabilities.
+
+\subsection{Materials and Statistical Tools / Evaluation Methods}
+
+To ensure optimal performance of the RAG-based LLM system, several key hardware and software components are required.
+
+\subsection{Research Materials}
+
+This section contains the dataset, hardware, and software requirements for the development of the RAG chatbot system.
+
+\subsubsection{Dataset}
+
+The study utilized a dataset consisting of all available undergraduate thesis PDFs (initially 290+ pdfs) from multiple CSPC departments, sourced from the CSPC library. Additionally, the system was designed to ingest newly published theses by allowing admin to upload new PDF files.
+
+\subsubsection{Hardware}
+
+To support the development of RAG chatbot system, the researchers will use hardware components that meet or exceed the specifications outlined in \ref{tab:hardware_requirements}. These components were selected to ensure efficient ingestion of a large corpus of PDFs, as well as to handle computationally intensive tasks like embedding generation.
+
+\begin{table}[H]
+    \centering
+    \caption{Hardware Requirements}
+    \label{tab:hardware_requirements}
+    \begin{tabular}{ll}
+        \hline
+        \textbf{Component}       & \textbf{Specification}                     \\ \hline
+        Processor (CPU)          & Modern Multi-core CPU                      \\
+        Memory (RAM)             & 16 GB or higher                            \\
+        Storage                  & 1 TB SSD or higher                         \\
+        Graphics Card (GPU)      & NVIDIA RTX 3090+ (recommended)             \\
+        \hline
+    \end{tabular}
+\end{table}
+
+A modern multi-core CPU enables efficient data processing and model inference, ensuring smooth query execution. At least 16 GB of RAM is recommended to manage large-scale embeddings and real-time retrieval operations effectively. 
+
+A 1 TB SSD is preferred due to its high read/write speeds, which significantly enhance data indexing and retrieval. Given the resource-intensive nature of embedding computations and AI-driven text generation, a high-performance GPU, such as an NVIDIA RTX 3090 or better, is crucial for accelerating deep learning inference and vector operations.
+
+\subsubsection{Software}
+
+\begin{table}[H]
+    \centering
+    \caption{Software Requirements}
+    \label{tab:software_requirements}
+    \begin{tabular}{ll}
+        \hline
+        \textbf{Component}      & \textbf{Specification}                                                               \\ \hline
+        Programming Language    & Python 3.10+                                                                         \\
+        Vector Database         & e.g. FAISS                                                                           \\
+        Language Model          & Gemini 2.5-flash                                                                     \\
+        Embedding Model         & \begin{tabular}[c]{@{}l@{}}sentence-transformers/\\ all-MiniLM-L6-v2 (HuggingFace)\end{tabular} \\
+        Web Framework           & Streamlit                                                                            \\
+        Libraries               & \begin{tabular}[c]{@{}l@{}}LangChain \\ PyMuPDF \\ NumPy \end{tabular} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Python 3.10 or later serves as the core programming language due to its comprehensive support for machine learning and natural language processing. FAISS is used as the vector database to facilitate fast and accurate semantic search. The system leverages Gemini 2.5-flash as its LLM via the Google Generative AI API, and sentence-transformers/all-MiniLM-L6-v2 to transform preprocessed text chunks into semantically rich vector representations. The Streamlit framework is used to build an interactive user interface.
+
+Document parsing and extraction are managed through the PyMuPDF library, ensuring accurate and efficient retrieval of textual data from PDF files. NumPy supports numerical operations, while LangChain manages the orchestration of LLMs during query interpretation and response generation.
+
+
+\subsection{Instrument}
+
+In this subsection, introduced the instruments that was used by researchers to analyze and evaluate the performance of the RAG chatbot system.
+
+\textit{RAGAS (Retrieval-Augmented Generation Assessment Suite)}. toolkit was utilized to automatically evaluate the quality of system outputs using metrics such as context precision, faithfulness, and answer relevance~\cite{shinn2023ragas}. Furthermore, a context recall metric was included, as recommended for evaluating retrieved chunks. These instruments ensured a rigorous and balanced evaluation of the proposed system from both system-level and user perspectives~ \cite{lin2021bert}.
+
+\textit{Survey.} Instruments serve as data collection tools across different areas and provide an effective way to gather information. They are useful when seeking insights into the attributes, preferences, opinions, or beliefs of a specific group. To meet the study objectives, the researchers will conduct a survey among employed librarians and CSPC students to evaluate the proposed RAG chatbot using a user-centered method that measures users’ level of agreement on the chatbot’s quality and performance. The researchers will develop questionnaires to assess users’ satisfaction with answers, likelihood to use the chatbot again, ease of reading and understanding the output, and confidence in the information retrieved by the system. The respondents of the study are all from the CSPC including 3 employees of Library, 1 faculty, and the 7 students will serve as a representative of the whole population.
+
+
+\subsubsection{Statistical Test}
+
+The system’s technical performance was evaluated using the RAGAS framework, focusing on context precision, recall, relevance, and faithfulness to measure how well relevant documents were retrieved and responses generated~\cite{holmes2023chatbot, ameli2024ranking, lin2024satisfaction}.
+
+Additionally, to asssess not only the technical but also the user-centered performance of the system, a user questionnaire was administered to collect feedback regarding usability, accuracy, and overall satisfaction, utilizing a 5-point Likert scale to ensure consistent measurement.
+
+\begin{table}[H] %TABLE 3%
+    \centering
+    \caption{Likert Scale for User Level of Agreement}
+    \label{tab:likert_scale}
+        \small
+        \begin{tabular}{cccp{2.7cm}}   \hline   \textbf{Scale} & \textbf{Range} & \textbf{Level of Agreement} & \multicolumn{1}{c}{\textbf{Description}} \\
+        \hline
+                5 & 4.21 - 5.00 & Strongly Agree & The participant strongly supports or agrees with the chatbot's response.\\
+        \hline
+                4 & 3.21 - 4.20 & Agree & Implies a positive stance toward the chatbot's response. \\
+        \hline
+                3 & 2.61 - 3.20 & Neutral & The respondent has neither a positive response nor a negative response, but undecided denotes a state of confusion of the respondent. \\
+        \hline
+                2 & 1.81 - 2.60 & Disagree & Suggests a level of disagreement with the statement or question, but not as strong as Strongly Disagree.\\
+        \hline
+                1 & 1.00 - 1.80 & Strongly Disagree & Indicates a strong and definitive disagreement with the statement or question. The respondent strongly opposes or disagrees with the chatbot's response.\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\ref{tab:likert_scale} shows that RAG chatbot system will use 5-point Likert Scale to determine users Level of Agreement based on the user’s experience to the system’s response quality and performance. The first column showed the scale that the system level of agreement fell under which was shown in third column and its corresponding definition in the fourth column. User’s response would be computed using weighted mean and will be determined in which range fell under. Scale 5 with a range of 4.20-5.00 described as “Strongly Agree” which means that the user of the RAG Chatbot completely agrees with the described criteria or finds its quality and performance excellent, scale 4 with a range 3.40-4.19 described as “Agree”, the user of the RAG Chatbot agrees with the described criteria but not to the strongest extent, scale 3 with a range 2.60-3.39 described as “Neutral”, the user of the RAG chatbot is neutral, undecided, or the  criteria description doesn’t strongly resonate in either direction, Scale 2 with a range of 1.80-2.59 described as “Disagree”, the user of the RAG Chatbot disagrees with the criteria description but not as intensely as “Strongly Disagree”, and Scale 1 is described as “Strongly Disagree”, the user of the RAG chatbot completely disagrees with the criteria description or finds the system as low quality and low performance.
+
+\begin{table}[H] %TABLE 4%
+    \centering
+    \caption{User Level of Satisfaction with Answers}
+    \label{tab:satisfaction_scale}
+    \small
+    \begin{tabular}{cccp{2.7cm}}
+        \hline
+        \textbf{Scale} & \textbf{Range} & \textbf{Level of Satisfaction} & \multicolumn{1}{c}{\textbf{Description}} \\
+        \hline
+        5 & 4.21 - 5.00 & Very Satisfied & The participant is very satisfied with the chatbot's answers.\\
+        \hline
+        4 & 3.21 - 4.20 & Satisfied & Indicates a positive satisfaction toward the chatbot's answers. \\
+        \hline
+        3 & 2.61 - 3.20 & Neutral & The respondent has neither a positive nor negative satisfaction; undecided or indifferent denotes a state of uncertainty of the respondent. \\
+        \hline
+        2 & 1.81 - 2.60 & Unsatisfied & Suggests a level of dissatisfaction with the chatbot's answers, but not as strong as Very Unsatisfied.\\
+        \hline
+        1 & 1.00 - 1.80 & Very Unsatisfied & Indicates a strong and definitive dissatisfaction with the chatbot's answers. The respondent is very unhappy with the chatbot's responses.\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\ref{tab:satisfaction_scale} shows that RAG chatbot system will use 5-point Likert Scale to determine users Level of Satisfaction based on the user’s experience to the system’s answers. The first column showed the scale that the system level of satisfaction fell under which was shown in third column and its corresponding definition in the fourth column. User’s response would be computed using weighted mean and will be determined in which range fell under. Scale 5 with a range of 4.20-5.00 described as “Very Satisfied” which means that the user of the RAG Chatbot completely satisfies with the provided answers, scale 4 with a range 3.40-4.19 described as “Satisfied”, the user of the RAG Chatbot is satisfied with the provided answers but not to the strongest extent, scale 3 with a range 2.60-3.39 described as “Neutral”, the user of the RAG chatbot is neutral, undecided, or the criteria description doesn’t strongly resonate in either direction, Scale 2 with a range of 1.80-2.59 described as “Unsatisfied”, the user of the RAG Chatbot is unsatisfied with the provided answers but not as intensely as “Very Unsatisfied”, and Scale 1 is described as “Very Unsatisfied”, the user of the RAG chatbot completely dissatisfied with the provided answers.
+
+\begin{table}[H] %Table 5
+    \centering
+    \caption{Likert Scale for User Level of Using the Chatbot Again}
+    \label{tab:reuse_scale}
+    \small
+    \begin{tabular}{cccp{1.5cm}}
+        \hline
+        \textbf{Scale} & \textbf{Range} & \textbf{Level of Using the Chatbot Again} & \multicolumn{1}{c}{\textbf{Description}} \\
+        \hline
+        5 & 4.21 - 5.00 & Very Likely & The participant is very likely to use the chatbot again.\\
+        \hline
+        4 & 3.21 - 4.20 & Likely & Implies a positive intention to reuse the chatbot.\\
+        \hline
+        3 & 2.61 - 3.20 & Neutral & The respondent is undecided or indifferent about using the chatbot again.\\
+        \hline
+        2 & 1.81 - 2.60 & Unlikely & Suggests a low intention to reuse the chatbot, but not as strong as Very Unlikely.\\
+        \hline
+        1 & 1.00 - 1.80 & Very Unlikely & Indicates a strong and definitive intention not to use the chatbot again. The respondent is very unlikely to reuse the chatbot.\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\ref{tab:reuse_scale} shows that RAG chatbot system will use 5-point Likert Scale to determine users Level of Using the Chatbot Again based on the user’s intention to reuse the system after their experience. The first column showed the scale that the system level of reuse fell under which was shown in third column and its corresponding definition in the fourth column. User’s response would be computed using weighted mean and will be determined in which range fell under. Scale 5 with a range of 4.20-5.00 described as “Very Likely” which means that the user of the RAG Chatbot is very likely to use the system again or finds it highly useful, scale 4 with a range 3.40-4.19 described as “Likely”, the user of the RAG Chatbot is likely to use the system again but not to the strongest extent, scale 3 with a range 2.60-3.39 described as “Neutral”, the user of the RAG chatbot is neutral, undecided, or the criteria description doesn’t strongly resonate in either direction, Scale 2 with a range of 1.80-2.59 described as “Unlikely”, the user of the RAG Chatbot is unlikely to use the system again but not as intensely as “Very Unlikely”, and Scale 1 is described as “Very Unlikely”, the user of the RAG chatbot is very unlikely to reuse the system or finds it not useful enough to return.
+
+\begin{table}[H] %TABLE 6%
+    \centering
+    \caption{User Level of Understanding Chatbot Responses}
+    \label{tab:understanding_scale}
+    \small
+    \begin{tabular}{cccp{2.5cm}}
+        \hline
+        \textbf{Scale} & \textbf{Range} & \textbf{Level of Understanding} & \multicolumn{1}{c}{\textbf{Description}} \\
+        \hline
+        5 & 4.21 - 5.00 & Very Easy & The participant finds the chatbot's responses very easy to understand.\\
+        \hline
+        4 & 3.21 - 4.20 & Easy & Implies generally easy comprehension of the chatbot's responses.\\
+        \hline
+        3 & 2.61 - 3.20 & Neutral & The respondent neither finds the responses easy nor difficult; undecided denotes a state of ambivalence.\\
+        \hline
+        2 & 1.81 - 2.60 & Difficult & Suggests some difficulty in understanding the chatbot's responses, but not as severe as Very Difficult.\\
+        \hline
+        1 & 1.00 - 1.80 & Very Difficult & Indicates the participant finds the chatbot's responses very difficult to understand.\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\ref{tab:understanding_scale} shows that RAG chatbot system will use 5-point Likert Scale to determine users Level of Understanding based on the user’s ease in reading and comprehending the system’s responses. The first column showed the scale that the system level of understanding fell under which was shown in third column and its corresponding definition in the fourth column. User’s response would be computed using weighted mean and will be determined in which range fell under. Scale 5 with a range of 4.20-5.00 described as “Very Easy” which means that the user of the RAG Chatbot finds the chatbot’s responses very easy to understand or finds its clarity and readability excellent, scale 4 with a range 3.40-4.19 described as “Easy”, the user of the RAG Chatbot finds the responses easy to understand but not to the strongest extent, scale 3 with a range 2.60-3.39 described as “Neutral”, the user of the RAG chatbot is neutral, undecided, or the criteria description doesn’t strongly resonate in either direction, Scale 2 with a range of 1.80-2.59 described as “Difficult”, the user of the RAG Chatbot finds the responses difficult to understand but not as intensely as “Very Difficult”, and Scale 1 is described as “Very Difficult”, the user of the RAG chatbot finds the responses very difficult to understand or considers the system unclear and hard to interpret.
+
+\begin{table}[H] %TABLE 7%
+    \centering
+    \caption{Likert Scale for User Level of Confidence on Information Received}
+    \label{tab:confidence_scale}
+    \small
+    \begin{tabular}{cccp{2.5cm}}
+        \hline
+        \textbf{Scale} & \textbf{Range} & \textbf{Level of Confidence} & \multicolumn{1}{c}{\textbf{Description}} \\
+        \hline
+        5 & 4.21 - 5.00 & Very Confident & The participant is very confident in the information received from the chatbot.\\
+        \hline
+        4 & 3.21 - 4.20 & Confident & Implies a general confidence in the chatbot's information.\\
+        \hline
+        3 & 2.61 - 3.20 & Neutral & The respondent neither expresses confidence nor distrust; undecided denotes a state of uncertainty of the respondent.\\
+        \hline
+        2 & 1.81 - 2.60 & Unconfident & Suggests some lack of confidence in the chatbot's information, but not as strong as Very Unconfident.\\
+        \hline
+        1 & 1.00 - 1.80 & Very Unconfident & Indicates a strong and definitive lack of confidence in the chatbot's information. The respondent is very unconfident about the chatbot's responses.\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\ref{tab:confidence_scale} shows that RAG chatbot system will use 5-point Likert Scale to determine users Level of Confidence based on the user’s trust and perceived accuracy of the information retrieved by the system. The first column showed the scale that the system level of confidence fell under which was shown in third column and its corresponding definition in the fourth column. User’s response would be computed using weighted mean and will be determined in which range fell under. Scale 5 with a range of 4.20-5.00 described as “Very Confident” which means that the user of the RAG Chatbot is very confident in the information received or finds its accuracy and reliability excellent, scale 4 with a range 3.40-4.19 described as “Confident”, the user of the RAG Chatbot is confident in the information but not to the strongest extent, scale 3 with a range 2.60-3.39 described as “Neutral”, the user of the RAG chatbot is neutral, undecided, or the criteria description doesn’t strongly resonate in either direction, Scale 2 with a range of 1.80-2.59 described as “Uncofident”, the user of the RAG Chatbot lacks confidence in the information retrieved but not as intensely as “Very Unconfident”, and Scale 1 is described as “Very Unconfident”, the user of the RAG chatbot is very unconfident in the chatbot's information or finds the responses unreliable.
+
+To analyze user questionnaire responses, the researchers used the Weighted Mean to summarize Likert-scale data. It captures perceptions of user satisfaction with answers, likelihood of using again, ease of understanding outputs, and confidence in accuracy. This method enables consistent comparison across items and respondents, supporting an evidence-based assessment of the chatbot’s overall usability and performance.
+
+\begin{equation}
+    \centering
+    WM = \frac{TWM}{N}
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item $WM$ = Weighted Mean
+    \item $TWM$ = Total Weighted Mean
+    \item $N$ = Total number of respondents
+\end{itemize}
+
+\subsection{Procedures}
+
+The procedures encompassed the collection and preprocessing of academic data, vector-based indexing, retrieval using semantic search, LLM-based response generation, and multi-metric evaluation using RAGAS, and user-centered evaluation.
+
+Each stage was designed to ensure the integrity, replicability, and effectiveness of the system in addressing the research objectives. By detailing the technical and methodological steps, this section served as a transparent and structured guide for future researchers seeking to replicate or build upon this study.
+
+% \subsection*{Data Collection}
+
+% PDF thesis documents were gathered from CSPC Library’s digital archives, focusing on undergraduate theses and institutional research. The collection process ensured that documents were academically relevant and representative of typical user queries.
+
+\begin{enumerate}
+
+    \item \textbf{Data Preprocessing} - The collected PDF thesis documents underwent a preprocessing phase to extract and clean the textual content.
+        \begin{enumerate}
+            \item [(a)] {Text Extraction:} PyMuPDF was used to convert PDF files into structured plain text.
+            \item [(b)] {Cleaning:} Non-informative characters and formatting were removed.
+            \item [(c)] {Text Chunking:} Text was segmented into manageable chunks to enhance semantic search accuracy.
+        \end{enumerate}
+        
+    \item \textbf{Indexing and Vector Embedding} - The preprocessed text chunks were transformed into vector representations and indexed for efficient retrieval.
+        \begin{enumerate}
+            \item [(a)] {Vector Embedding:} Each text chunk will be embedded using gemini-embedding-001.
+            \item [(b)] {Cleaning:} FAISS will store the vectorized content along with metadata such as document titles, authors, and section headers.
+        \end{enumerate}
+
+    \item \textbf{Query Handling and Semantic Retrieval} - User queries were processed to retrieve relevant document chunks from the vector database.
+        \begin{enumerate}
+            \item [(a)] {Query Encoding:} The user’s natural language query is encoded using the same embedding model applied during indexing to maintain compatibility in the latent space.
+            \item [(b)] {Similarity Search:} The encoded query is matched against stored vectors to retrieve the top-$K$ relevant chunks (default $K=6$). For exploratory or synthesis-oriented queries, $K$ may be adaptively increased to improve coverage.
+        \end{enumerate}
+
+    \item \textbf{Response Generation} - The Gemini 2.5-flash language model will process the augmented input to generate a response that is factually aligned with the source documents.
+
+    \item \textbf{Output Presentation} - The system will display the generated response via a user interface that includes metadata such as the source thesis title and section, encouraging transparency and academic integrity.
+
+    \item \textbf{Performance Evaluation}
+        \begin{enumerate}
+            \item [(a)] {Automated Evaluation:} Metrics from the RAGAS framework, Context Precision, Context Recall, Answer Relevance, and Faithfulness, will be calculated.
+            \item [(b)] {Human Evaluation:} A usability questionnaire was distributed to a sample of student users to assess the system’s clarity, ease of use, and usefulness in retrieving academic information.
+        \end{enumerate}
+
+\end{enumerate}
+
+
+\subsection{Evaluation Metrics}
+
+The researchers used a framework called \textbf{RAGAS} that comprised specific metrics to assess Retrieval-Augmented Generation (RAG)-based architectures, thereby ensuring precise measurements of both retrieval quality and generation fidelity~\cite{oubah2024advanced}. This framework evaluated the model's performance using the following metrics: \textit{Context Precision}, \textit{Context Recall}, \textit{Response Relevance}, and \textit{Faithfulness}. Each metric was essential in addressing the system’s retrieval and generation performance.
+
+\subsubsection*{Context Precision}
+
+The Context Precision metric was used to evaluate the retrieval quality of the RAG chatbot within the CSPC Library. It measured the proportion of relevant document chunks among the top $K$ retrieved results, emphasizing the system's ability to present highly relevant content at higher ranks. A higher Context Precision indicated that the system effectively prioritized relevant information for the user.
+
+\begin{equation}
+\centering
+\text{Context Precision@K} = 
+\frac{
+    \sum_{k=1}^{K} \left( \text{Precision@k} \times v_k \right)
+}{
+    \text{Total number of relevant items in the top } K \text{ results}
+}
+\end{equation}
+
+where $\text{Precision@k}$ is the precision at rank $k$, and $v_k$ is a binary indicator variable such that $v_k = 1$ if the chunk at position $k$ is relevant, and $v_k = 0$ otherwise. Here, $K$ indicates the cutoff for the top results evaluated. The denominator normalizes the metric by accounting for the total number of relevant items within the top $K$ retrieved results. This weighted approach ensures that relevant items retrieved earlier in the ranking contribute more significantly to the final score, making the metric especially meaningful for library retrieval tasks.
+
+The precision at each position $k$, denoted as Precision@k, is computed as follows:
+
+\begin{equation}
+\centering
+\text{Precision@k} = 
+\frac{
+    \text{true positives@k}
+}{
+    \text{true positives@k} + \text{false positives@k}
+}
+\end{equation}
+
+where $\text{true positives@k}$ is the number of relevant chunks retrieved up to position $k$, and $\text{false positives@k}$ is the number of non-relevant chunks retrieved up to the same position. This component metric quantifies retrieval accuracy at each rank and serves as a foundation for the overall Context Precision@K calculation.
+
+\subsubsection*{Context Recall}
+
+Context Recall was used to evaluate the comprehensiveness of the retrieval system in capturing all relevant information necessary to answer a query. It measured the proportion of relevant chunks successfully retrieved by the RAG chatbot within the CSPC Library, ensuring minimal omission of important academic content.
+
+\begin{equation}
+\centering
+\small
+\text{Context Recall} = \frac{\text{Number of relevant claims supported by retrieved chunks}}{\text{Total number of relevant claims in the reference answer}}
+\end{equation}
+
+where:
+
+\begin{itemize}
+    \item \textit{Number of relevant claims supported by retrieved chunks} refers to the count of factual claims in the ground truth answer that can be attributed to the retrieved document chunks,
+    \item \textit{Total number of relevant claims in the reference answer} represents all the factual claims present in the ground truth answer that ideally should be covered by the retrieval process.
+\end{itemize}
+
+This metric captures how effectively the system covers the necessary knowledge, with a value ranging between 0 and 1, where 1 indicates perfect recall. It ensures that critical academic information is not missed during retrieval, making it an essential part of evaluating the RAG chatbot system.
+
+
+\subsubsection*{Response Relevance}
+
+Response Relevance was a critical metric used to evaluate how well the RAG chatbot's generated answer addressed the specific query posed by users in the CSPC Library. This metric ensured that the chatbot provided focused, comprehensive, and directly applicable responses to academic inquiries, minimizing irrelevant or incomplete information that could hinder research efficiency.
+
+\begin{equation}
+\centering
+\small
+\text{Response Relevance} = \frac{1}{N} \sum_{i=1}^{N} \cos(E_{g_i}, E_o)
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $N$ is the number of artificially generated questions based on the response (typically 3),
+    \item $E_{g_i}$ is the embedding of the $i$-th generated question derived from the response,
+    \item $E_o$ is the embedding of the original user query,
+    \item $\cos(E_{g_i}, E_o)$ represents the cosine similarity between the generated question embedding and the original query embedding.
+\end{itemize}
+
+This metric works on the idea that if the chatbot's response sufficiently answers the original query, then questions generated from that response will semantically align with the original question, this involves generating multiple artificial questions, embedding both the response-generated questions and the original query into vector representations, and calculating the mean cosine similarity to measure alignment, which ensures that the retrieved academic information closely matches the research needs of CSPC Library users.
+
+\subsubsection*{Faithfulness}
+
+Faithfulness is a critical metric for evaluating the factual consistency of the RAG chatbot's generated responses with respect to the retrieved context from the CSPC Library. This metric ensures that all claims made in the chatbot's answer are directly supported by the information present in the retrieved documents, thereby minimizing hallucinations and maintaining academic integrity.
+
+\begin{equation}
+\centering
+\small
+\text{Faithfulness} = \frac{\text{Number of claims in the response supported by retrieved context}}{\text{Total number of claims in the response}}
+\end{equation}
+
+where:
+\begin{itemize}
+\item \textit{Number of claims in the response supported by retrieved context} refers to the count of factual statements in the generated answer that can be directly verified or inferred from the retrieved context chunks,
+\item \textit{Total number of claims in the response} is the complete count of all factual statements made in the answer, regardless of whether they are supported by the context.
+\end{itemize}
+
+A faithfulness score of $1.0$ indicates that all claims in the response are grounded in the retrieved context, while lower scores reveal the presence of unsupported or hallucinated information. In the context of academic literature search and thesis retrieval, maintaining high faithfulness is essential to ensure that the chatbot's answers are trustworthy and factually accurate, directly reflecting the content of the CSPC Library's resources.
+
+
+\subsection{Conceptual Framework}
+
+The conceptual framework served as the foundational blueprint for the RAG-based chatbot system. It emphasized the end-to-end interaction of modules required to support intelligent, accurate, and efficient academic document retrieval. As illustrated in \ref{fig:conceptual_framework}, the system followed a cyclical process beginning with data collection and ending with system evaluation and refinement.
+The arrows were used solely to visually indicate the step-by-step flow of each component within the chatbot framework; they did not signify any technical operation or special relationship beyond showing the direction of the process. 
+
+This visualization helps guide readers through the sequence of the system stages, ensuring clarity at the outset.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/framework.png}
+    \caption{Conceptual Framework of the RAG-Based Chatbot System}
+    \label{fig:conceptual_framework}
+\end{figure}
+
+\textit{Data Collection}. The process began with section where the researchers began with their proposal and coordination with CSPC Library and its staff, where the prototype was demonstrated to show how a RAG-powered chatbot could improve thesis discovery beyond exact-keyword search by enabling topic-oriented, semantically grounded retrieval within the library’s own repository. In the demonstration, the project’s institutional value was emphasized in accelerating literature searches, increasing access to relevant local theses, and supporting academic guidance, following the researchers' formal request to obtain one hundred undergraduate thesis PDFs from various College departments of CSPC to use as the main corpus of the RAG chatbot application.
+
+\textit{Data Pre-processing}. Tools like PyMuPDF were used to extract plain text from the collected PDFs. The extracted content underwent cleaning and normalization to remove non-informative characters, followed by segmentation into semantically meaningful text chunks.
+
+\textit{Indexing and Vector Database Construction}. \textit{Indexing and Vector Database Construction}. Each text chunk was embedded using the sentence-transformers/all-MiniLM-L6-v2` model from Hugging Face, converting semantic meanings into dense vectors that capture both explicit and implicit relationships across CSPC thesis documents. These vectors were indexed in FAISS, enabling fast, context-aware retrieval of relevant content through natural language queries. Metadata was preserved for each vector, maintaining links to source documents and positions. This architecture supports semantic discovery of academic literature, surpassing traditional keyword matching.
+
+\textit{Query Encoding and Retrieval}. User queries were encoded into dense vectors using the same embedding model as for document indexing, ensuring semantic alignment. The system then performed fast similarity searches in FAISS, retrieving the top-K relevant thesis chunks based on conceptual match, instead of keyword overlap. This process allowed contextually accurate results even for varied terminology, forming the basis for the chatbot's informed, thesis-grounded responses.
+
+\textit{Augmented Input Generation}. the augmented input generation phase served as the crucial bridge between retrieved thesis content and intelligent response formulation, where raw document chunks evolved into contextually enriched prompts capable of guiding accurate academic discourse.
+
+\textit{Response Generation}, The response generation stage represented the culmination of the RAG pipeline, where gemini-1.5-flash transformed augmented academic context into coherent, factually grounded answers that addressed user research inquiries. 
+
+\textit{Response Output and Interface Display}. In this section, streamlit was used to create an intuitive web interface that presented the chatbot's responses alongside relevant metadata, such as source thesis titles and sections.
+
+\textit{Performance Evaluation}. Lastly, the system's effectiveness was evaluated using both automated metrics and human-centered assessments. Automated evaluation employed the RAGAS framework and for user-centered evaluation, a structured questionnaire was administered to gather feedback on usability, accuracy, and overall satisfaction. This dual-layered evaluation ensured that the RAG-based chatbot system not only met technical performance benchmarks but also aligned with user expectations and academic research needs.
+
+
+
+
+
+\section{Results and Discussion}
+
+This chapter discusses the results and evaluation of the Retrieval-Augmented Generation (RAG) chatbot developed for efficient literature search and thesis retrieval at the Camarines Sur Polytechnic Colleges (CSPC) Library.
+
+\subsection{Dataset and Preparation}
+The study corpus comprised all available undergraduate thesis PDFs from multiple CSPC departments (290+ documents). The dataset was prepared via structured text extraction and token-based chunking aligned with thesis sections (Abstract; Chapters 1--5), enabling section-aware retrieval.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/dataset_sample.jpg}
+    \caption{CSPC Thesis PDF Sample}
+    \label{fig:dataset_sample}
+\end{figure}
+
+Upon agreement on project scope and data handling, library personnel granted the researchers to gain access to the digital copies of undergraduate thesis papers. This composes of theses from different departments.
+
+\subsection{Data Preprocessing}
+Texts were extracted page-by-page and enriched with metadata (source, page) to preserve academic provenance. Token-based chunking produced coherent segments sized to the LLM context window and guided by thesis structure, improving retrieval fidelity and citation transparency.
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{figures/chunk_analysis.jpg}
+        \textbf{(a) Chunk Analysis}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{figures/chunk_stat4.jpg}
+        \textbf{(b) Chunk Statistics}
+    \end{minipage}
+    \caption{Chunk Analysis \& Statistics}
+\end{figure}
+
+Figure 4 shows the chunk analysis and statistics respectively. Chunk statistics indicated a total chunks count of 38,127 and total token count of 11,849,783. With an average of 311 tokens per chunk. The chunking strategy was effective in breaking down lengthy thesis documents into manageable, semantically coherent pieces suitable for embedding and retrieval.
+
+\subsection{Indexing and Vector Database Construction}
+The indexing phase transformed the preprocessed text chunks into a searchable knowledge base optimized for semantic retrieval within the RAG pipeline. This critical stage bridged the gap between raw textual content and the intelligent query-response capabilities that would define the chatbot's effectiveness in academic literature discovery.
+
+Embeddings were generated primarily with sentence-transformers/all-MiniLM-L6-v2 (HuggingFace), chosen for its efficiency and strong semantic performance; when cloud embeddings were available, Gemini could be used as an alternative for multilingual scenarios. FAISS stored vectors alongside source/page metadata to preserve traceability. This enabled natural language queries to retrieve semantically relevant thesis segments beyond exact keyword matching.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{figures/index.jpg}
+%     \caption{Created index in FAISS}
+% \end{figure}
+
+\subsection{Query Encoding and Retrieval}
+Queries were embedded using the same model as indexing to ensure consistency. The FAISS-backed retriever returned the top-$K$ relevant chunks (default $K=6$), balancing precision and recall. Diversity-enhancing strategies (e.g., MMR) were used for broader queries to avoid redundant chunks.
+
+For example, when users asked, “What research has been done on machine learning applications in healthcare?” or “Show me theses about sustainable energy solutions,” the system retrieved abstracts and key sections.  Notably, setting $K=6$ produced a good balance of focused context and cross-thesis coverage.
+
+\subsection{Augmented Input and Generation}
+Retrieved chunks were concatenated with the user query into a structured context with lightweight citation markers. This supported grounded, traceable answers and reduced hallucination risk.
+
+Prompt templates guided the model to answer strictly from provided context, with safeguards (token monitoring, truncation) to maintain input quality.
+
+\subsection{Response Generation with Gemini 2.5-flash}
+
+The Gemini 2.5-flash model generated answers grounded in retrieved context. The system was configured with temperature=0 to ensure deterministic outputs suitable for academic use.
+ 
+Generated content was parsed into clean text for display. While RAG significantly reduced hallucinations, occasional inaccuracies were observed when context was insufficient; users were advised to validate critical findings.
+
+\subsection{Interface and Usage Observations}
+
+The Streamlit interface supported conversational exploration with session-based history and safety filters for disallowed queries. Cached chains ensured responsive interactions.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/streamlit.png}
+    \caption{User Interface}
+    \label{fig:streamlit_interface}
+\end{figure}
+
+Generated responses appeared as Markdown with citations and structured text. When queries violated safety parameters, clear warnings were shown. Deterministic settings improved consistency and user trust.
+
+\subsection{Model Evaluation}
+This section evaluated the CSPC Library RAG chatbot using four core metrics: Answer Relevancy, Context Precision, Context Recall, and Faithfulness. Together, they capture accuracy, coverage, and grounding of responses. The evaluation follows established academic practices, enabling concise, reliable measurement of retrieval quality and generation within the literature search workflow of the system effectively.
+
+\subsection{Result}
+This section presents the findings through tables, figures, and subsequent discussion. Prior to evaluation, a systematic data processing pipeline was applied: 290+ undergraduate thesis PDFs from the CSPC Library were processed into segmented meaningful text chunks, and embedded using Hugging Face's Embeddings. These chunks were indexed in FAISS for efficient semantic retrieval, enabling the RAG chatbot to generate contextually relevant and factually grounded responses for user queries. This process ensured that the evaluation was conducted on high-quality, well-structured academic data. In addition to the system-level RAGAS metrics, a complementary user-centered evaluation was performed using a 5-point Likert scale questionnaire, responses were summarized via weighted mean and interpreted using predefined agreement ranges (see \ref{tab:likert_scale}) to align technical performance with perceived usability and satisfaction.
+
+\begin{table}[H]
+    \centering
+    \caption{RAG System Evaluation Metrics using RAGAS Framework}
+    \label{tab:rag_metrics}
+    \begin{tabular}{ll} 
+        \hline
+        \textbf{Metric}     & \textbf{Average Score} \\
+        \hline
+        Answer Relevancy    & 0.8625 \\
+        Context Precision   & 0.9167 \\
+        Context Recall      & 0.8711 \\
+        Faithfulness        & 0.9179 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+The table presents a performance profile characterized by precise, well-grounded answers. Faithfulness (0.9179) and Context Precision (0.9167) indicate that retrieved evidence is both accurate and tightly focused, yielding citations that trace cleanly to source pages. Context Recall (0.8711) shows broad coverage of relevant thesis passages, while Answer Relevancy (0.8625) confirms that final responses align with user intent in typical literature-search tasks.
+
+In practice, a query such as “What methodologies are used for detecting academic plagiarism at CSPC?” returns a compact set of segments drawn from Methods and Related Works sections across multiple theses. The system synthesizes these into direct, cited responses; high precision keeps noise low, high recall surfaces cross-department perspectives, and high faithfulness maintains strict grounding in the referenced documents.
+
+These results demonstrate the RAG system's effectiveness in retrieving and generating accurate, relevant, and well-grounded answers based on the indexed thesis documents from the CSPC Library. The high scores across all four evaluation metrics indicate that the system is capable of providing reliable academic assistance, making it a valuable tool for students and researchers seeking information from the library's thesis collection.
+
+\subsection*{Visualization of RAG System Evaluation Metrics}
+The figures below illustrate the evaluation metrics of the RAG system using various visualization techniques, including bar charts, box plots, heatmaps, and radar charts.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/RAG_bar_chart_result.png}
+    \caption{Bar Chart of RAG System Evaluation Result}
+    \label{fig:rag_bar_chart}
+\end{figure}
+
+The bar graph shows that the overall evaluation of the RAG system demonstrates a strong performance in all four metrics. The highest scores are observed in Faithfulness (0.918) and Context Precision (0.917), indicating that the system effectively grounds its responses in accurate and relevant information retrieved from the source documents. These results suggest that the system minimizes hallucinations, maintains real information during response, and focuses on the most pertinent contextual segments during retrieval. These scores prove that the RAG model is well-optimized for generating trustworthy and accurate responses.
+
+The faithfulness result as the score means that the system consistently produces outputs that accurately reflect the underlying source material, which is helpful for users seeking reliable information. The high context precision score indicates that the retrieved passages are highly relevant to the user's information needs, minimizing the inclusion of unnecessary or loosely related content. This is particularly important in academic contexts where precision is critical. The context recall score, while slightly lower, still demonstrates that the system captures a substantial portion of relevant information, though there may be room for improvement in ensuring that all pertinent details are included. Finally, the answer relevancy score indicates that the responses generated by the system generally align well with user queries, although there may be occasional instances where the answers could be more comprehensive or directly address the user's intent.
+
+These results, visualized using a bar chart, further confirm the effectiveness of the designed RAG pipeline. By using metrics such as faithfulness, context precision, context recall, and answer relevancy, the evaluation demonstrates robust grounding, accurate retrieval, and answers well the different types of queries. Overall, the findings indicate that the system reliably meets information needs and provides actionable assistance to users who primarily seek accurate, relevant, and well-cited academic content from the CSPC Library’s thesis collection, thereby supporting accurate literature search and informed research decision‑making for students and researchers.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/RAG_heatmap_chart_result.png}
+    \caption{Heatmap of RAG System Evaluation Result}
+    \label{fig:rag_heatmap}
+\end{figure}
+
+The heatmap shows the question level performance of the RAG system across the four evaluation metrics. Most of the scores are ranging from 0.75 to 1.00, indicating a generally strong performance. The dark green cells represent high-quality outputs, while the mid-range yellow tones and the single red cell indicates low Context Precision for Question 3 which highlights the area where the system's performance could be improved. Overall, the system demonstrates strong answer alignment, with Questions 0 to 2 achieving high Answer Relevancy scores above 0.90. Meanwhile, Questions 3 and 4 show slightly reduced relevancy, suggesting occasional omissions. These patterns indicate that the system generally maintains high standards but may need targeted refinements for more complex queries.
+
+Among the RAG metrics implemented, Context precision is excellent for four of the five questions with each scoring 1.00, while Question 3’s value signals low context selection, despite that, Context recall remains consistently high, indicating stable retrieval depth across queries. Faithfulness is similarly strong, with only Question 2 dipping slightly. Altogether, the heatmap highlights a reliable RAG system with minor, clearly identifiable areas for improvement.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/RAG_radar_chart_result.png}
+    \caption{Radar Chart of RAG System Evaluation Result}
+    \label{fig:rag_radar_chart}
+\end{figure}
+
+The radar chart shows that the RAG system demonstrates a consistently high and well-balanced performance across the four evaluation metrics: Faithfulness, Context Precision, Context Recall, and Answer Relevancy. The nearly symmetrical shape of the plot indicates that no metric falls below an acceptable range, with Faithfulness and Context Precision forming the strongest extensions. This suggests that the system reliably grounds its answers in retrieved evidence and selects context that is highly relevant to the user’s query, effectively minimizing hallucinations and maintaining strong alignment with source documents. 
+
+However, the Context Recall and Answer Relevancy metrics, while still the RAG system show good performance in these areas, the Radar Chart indicates that there is room for improvement to further enhance the system's ability to retrieve all relevant information and generate answers that fully meet user expectations. Focusing on these metrics could lead to even more comprehensive and satisfactory responses in future iterations of the system.
+
+These overall visualization results of evaluation metrics confirm the RAG system's capability as a dependable academic search assistant, while also guiding future enhancements to further elevate its performance.
+
+\section*{User Agreement on Chatbot Response Quality and Performance}
+\ref{tab:user_agreement_quality} shows the results of the user-centered evaluation of the CSPC Library RAG chatbot using 5-point likert scale survey questions that allows the respondents to evaluate and choose the level of agreement with the chatbot’s response quality and performance.
+
+\begin{table}[H]
+    \centering
+    \caption{User Agreement: Chatbot Response Quality and Performance}
+    \label{tab:user_agreement_quality}
+    \footnotesize
+    \begin{tabular}{p{2cm} c c}
+        \hline
+        \multicolumn{1}{c}{\textbf{Criteria}} & \textbf{Weighted Mean} & \textbf{Verbal Interpretation} \\
+        \hline
+        The questions are answered well by the chatbot. & 4.3 & Strongly Agree \\
+        \hline
+        The answers are relevant to the question. & 4.5 & Strongly Agree \\
+        \hline
+        Chatbot’s responses are clear and understandable. & 4.5 & Strongly Agree \\
+        \hline
+        The chatbot’s responses help answer your questions. & 4.3 & Strongly Agree \\
+        \hline
+        The chatbot provided enough information. & 4.2 & Strongly Agree \\
+        \hline
+        The chatbot has a quick response time. & 4.1 & Agree \\
+        \hline
+        \textbf{Overall Weighted Mean} & \textbf{4.3} & \textbf{Strongly Agree} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+The result of the evaluation of the RAG chatbot using user-centered evaluation method indicate a generally positive reception from users across various criteria. Here’s the breakdown of the findings. In terms of the chatbot’s question and answering performance, users strongly agreed (weighted mean: 4.3) that the system performed well in answering user questions, indicating that the chatbot meets user expectation in getting right answers. Users also strongly agreed (weighted mean: 4.5) that the chatbot provide answers relevant to the questions provided by the users, indicating that the system effectively interprets user intent and provide relevant answers based on the questions. Furthermore, users strongly agreed (weighted mean: 4.5) that the chatbot gives clear and easy-to-understand answers. This means the chatbot not only gives correct responses but also explains them in a way that users can easily follow. Moreover, the chatbot helped users find the answers they were looking for. With a (weighted mean of 4.3), users strongly agreed that the chatbot’s replies were useful and matched their questions well. This shows that the system supports users in getting the help they need. In the same way, the chatbot provided enough information to help users, with a weighted mean of 4.2. This shows that users  strongly agreed and felt the chatbot gave complete and useful answers during their interaction. Lastly, the chatbot was quick to reply, with users agreeing (weighted mean: 4.1) that it responded without delay. This means the system was able to give answers fast, helping users get the information they needed right away. Overall, the respondents showed agreement across the measured areas, with an average weighted mean of 4.3 (Strongly Agree). This indicates that users found the chatbot’s answers to be correct, relevant, clear, and mostly complete, and that the chatbot responded quickly enough to be useful These findings suggest the chatbot works well for its main task of helping users find information and understand answers. Minor improvements could focus on making responses more complete and slightly faster to raise overall satisfaction even more. Furthermore, according to \citeauthor{folstad2021future} \citeyear{folstad2021future}, user-centered evaluation has been key within several disciplines at the roots of current chatbot research, particularly in understanding users' needs, motivations, and experiences with chatbot interactions. Thus, it is advisable to utilize this method to assess system effectiveness and user satisfaction before deployment to ensure the RAG chatbot meets actual user expectations and provides satisfactory support for thesis retrieval tasks in the CSPC Library context.
+
+\subsection*{User Feedback on RAG chatbot’s Effectiveness and Usability}
+\ref{tab:user_feedback_table} presents the user-centered evaluation results of the RAG chatbot using a 5-point Likert scale. The table shows weighted means for user satisfaction, likelihood of using the chatbot again, ease of reading and understanding the chatbot’s output, and confidence in the chatbot’s information, allowing readers to gauge overall user perception and intent to use the system in the future.
+
+\begin{table}[H] %%%%% Table 6 page 55 %%%%%%
+    \centering
+    \caption{User Feedback on RAG chatbot’s Effectiveness and Usability}
+    \label{tab:user_feedback_table}
+    \footnotesize
+    \begin{tabular}{m{2cm} cc}
+        \hline
+        \multicolumn{1}{c}{\textbf{Criteria}} & \textbf{Weighted Mean} & \textbf{Verbal Interpretation} \\
+        \hline
+        Satisfaction with answers & 4.1 & Satisfied \\
+        \hline
+        Likelihood of using the chatbot again & 4.3 & Very Likely \\
+        \hline
+        Ease of understanding the chatbot’s output & 4.5 & Very Easy \\
+        \hline
+        Confidence in the chatbot’s information & 3.8 & Confident \\
+        \hline
+        \textbf{Overall Weighted Mean} & \textbf{4.2} & \textbf{Strongly Agree} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+The results for satisfaction with answers, likelihood to use again, ease of reading and understanding, and confidence in information accuracy show generally positive user feedback. And, according to \citeauthor{kaushal2022role} \citeyear{kaushal2022role} and \citeauthor{okonkwo2021chatbots} \citeyear{okonkwo2021chatbots}, these aspects of chatbots that deliver clear, useful, and readable responses greatly improve user satisfaction. In addition, \citeauthor{choudhury2023investigating} \citeyear{choudhury2023investigating} and \citeauthor{zhang2024ai} \citeyear{zhang2024ai} found that trust and factual accuracy are essential for encouraging continued use and building user confidence in AI chatbots. After considering these established determinants, the detailed breakdown is as follows. In terms of user satisfaction with answers, users were satisfied (weighted mean: 4.1), indicating that the chatbot’s replies met users’ needs and were generally acceptable. Regarding likelihood of reuse, users were very likely to use the chatbot again (4.3), suggesting strong perceived utility. Users also found the responses very easy to read and understand (4.5), demonstrating clear and user-friendly output. Confidence in the chatbot’s information was moderately strong (3.8), implying general trust with some expectation for accuracy improvements. Overall, the respondents provided positive feedback across all measures with the overall weighted mean of (4.2), showing that the users strongly agree that the chatbot delivers useful, relevant, clear, and mostly complete answers, supports continued usage intention, and yields satisfactory user experience, with factual confidence identified as a targeted area for further enhancement.
+
+
+
+
+\section{Summary of Findings, Conclusions, and Recommendations}
+
+This chapter presents the summary of findings, conclusions, and recommendations derived from the results of the study.
+
+\subsection{Summary}
+
+Finding relevant thesis literature in a university library like in CSPC can be difficult for many students and researchers. Most people have a hard time finding the exact thesis they need because the current library website only allows searches by the exact title. If a user does not know the precise title, it becomes a struggle to locate the right documents. Making things even harder, library rules do not allow theses to be taken out of the building, which means users must visit the library in person to access important academic materials. Because of these challenges, this study explored creating a chatbot that would let users search for thesis papers using topics, keywords, or even general descriptions, all while making the system accessible everywhere.
+
+To solve these problems, the researchers built a new chatbot system that uses Retrieval-Augmented Generation (RAG) along with a state of the art Large Language Model (LLM). The process involved preprocessing and converting 290+ undergraduate thesis papers into digital embeddings and be store on FAISS vector database, which allows the chatbot to understand and search for relevant information based on a user's question in natural language. The chatbot retrieves and shows the most fitting parts of the theses and uses the Gemini 2.5-flash model to generate accurate and appropriate responses. All the system steps from preparing the thesis files to designing a simple user interface work together to make searching faster and more effective. The system was tested using different automated metrics from RAGAS evaluation framework including context precision, context recall, answer Relevance and faithfulness. Additionally, a user questionnaire with a 5-point likert scale to assess a human-centered performance.
+
+The results were promising, with the RAG-based chatbot achieving high performance in both precision and answer relevancy. Specifically, the system scored 0.818 for Context Precision, demonstrating strong capability to return highly relevant content, and context recall reached 0.721, showing that the chatbot successfully gathers most of the necessary supporting content, though some supporting details were still missed. Answer relevancy reached 0.737, indicating that responses were generally useful and addressed user queries appropriately. While faithfulness at 0.585 highlighted that while most answers were grounded in the source documents, there is room for improvement in ensuring all generated content is directly traceable to original texts. 
+
+The deployment of the chatbot was observed to make thesis search more intuitive, significantly lowering entry barriers for users and reducing time spent locating needed materials. Moreover, it became evident to the researchers that several factors influenced system performance, such as thesis data quality,  and user prompts that significantly impairs the chatbot's accuracy.
+
+\subsection{Findings}
+
+The following are the key findings from the study:
+
+\begin{enumerate}
+    \item By integrating a document ingestion and retrieval module, all thesis documents in PDF format are standardized and divided using thesis-aware boundaries, enriched with metadata, embedded, and indexed in FAISS. This makes them discoverable through semantic search rather than exact keyword matching, resulting in much better retrieval of abstracts, authors, chapters, and themes compared to traditional databases. The pipeline’s token-based chunking and content-type tagging (such as abstract, methodology, or results) really improve context alignment and ranking, so queries like “give me the complete abstract” or “find theses related to nursing” return relevant sections directly, whereas traditional catalogs usually require exact titles or strict keyword fields.
+
+    \item By implementing a semantic search and thesis retrieval system with RAG orchestrated in LangChain, FAISS as the vector database, using all-MiniLM-L6-v2 from HuggingFace for vector embeddings and Google Gemini 2.5-flash as the generative LLM, user queries are matched to semantically relevant thesis chunks, which consistently yields more precise answers to intent-driven questions (such as complete abstracts, author-focused lookups, or chapter-specific content) than the current yet traditional keyword-based search that depends on exact titles and rigid field matches. The RAG pipeline grounds answers in retrieved chunks, so the chatbot can compose context-aware responses tied to real thesis passages, while the thesis-aware chunking and metadata (abstract, methodology, results, and chapter tags) improve ranking and reduce irrelevant matches.
+
+    \item Using the RAGAS as the RAG evaluation framework the system sustained high results in Context Precision (0.9167), Context Recall (0.8711), Answer Relevancy (0.8625), and Faithfulness (0.9179). Together these values indicate a robust retrieval-and-generation pipeline: high precision and recall show the FAISS-backed retrieval reliably returns the necessary thesis passages, while the strong answer relevancy demonstrates the LLM composes useful responses from those sources. The notably high faithfulness score suggests that generated outputs are, in most cases, directly grounded in retrieved documents, which materially reduces the likelihood of unsupported or hallucinated assertions. The evaluation still highlights the usual dependencies and limitations, chiefly the quality and structure of ingested thesis PDFs, OCR/formatting errors, and user prompt variability which remain important targets for continued optimization even as overall performance is strong.
+\end{enumerate}
+
+\subsection{Conclusions}
+
+    Based on the findings, the researchers come up with the folling conclusions:
+
+\begin{enumerate}
+    \item It is evident that the integration of a thesis-aware document ingestion pipeline is a critical first step in modernizing thesis discovery. By standardizing documents, applying content-aware chunking, and enriching the data with metadata before indexing, the system overcomes the limitations of traditional keyword-based catalogs. This approach makes thesis content more accessible and discoverable through semantic search, allowing users to find relevant information based on intent rather than exact phrasing.
+
+    \item By implementing a semantic search and thesis retrieval system with RAG orchestrated in LangChain, FAISS for approximate nearest-neighbor search, using all-MiniLM-L6-v2 for vector embeddings and Google Gemini 2.5-flash as the generative LLM, user queries are matched to semantically relevant thesis chunks, which consistently yields more precise answers to intent-driven questions than the current yet traditional keyword-based search that depends on exact titles and rigid field matches. By combining semantic search with the generative capabilities of Google Gemini 2.5-flash, the RAG chatbot offers a robust solution for efficient and accurate thesis retrieval in the CSPC Library.
+
+    \item The evaluation confirms the RAG-based chatbot is an effective tool, successfully retrieving relevant context and providing useful answers. However, it also reveals areas for improvement, particularly in ensuring complete information retrieval and strict faithfulness to the source texts. The system's performance is fundamentally linked to the quality of the ingested documents, highlighting a need for ongoing optimization to enhance its reliability.
+\end{enumerate}
+
+\subsection{Recommendations}
+
+\begin{enumerate}
+    \item Future work should focus on improving the faithfulness and recall of generated responses. This may involve refining the chunking and retrieval process, integrating more advanced embedding models, or incorporating additional post-processing checks to ensure factual consistency.
+    \item Increasing the diversity and volume of ingested thesis documents, and exploring the inclusion of other academic materials (e.g., journal articles, conference papers), can further improve retrieval coverage and system robustness.
+    \item To complement automated metrics, future evaluations should include human-in-the-loop assessments, such as expert reviews or user feedback surveys, to better capture subjective aspects of response quality and user satisfaction.
+    \item Continued development of the chatbot interface, including user-friendly features like advanced filtering, citation export, and personalized recommendations, will enhance usability and adoption within the academic community.
+    \item For broader impact, consider deploying the system on scalable infrastructure and integrating it with other institutional platforms, ensuring accessibility for all CSPC stakeholders.
+\end{enumerate}
+
+
+
+%%
+%% The acknowledgments section is defined using the "acks" environment
+%% (and NOT an unnumbered section). This ensures the proper
+%% identification of the section in the article metadata, and the
+%% consistent spelling of the heading.
+\begin{acks}
+Acknowledgements go here. Delete enclosing begin/end markers if there are no acknowledgements.
+\end{acks}
+
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references.bib}
+
+%%
+\end{document}
+\endinput
+%%
+%% End of file `main.tex'.
