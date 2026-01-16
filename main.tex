@@ -165,7 +165,7 @@
 %% The abstract is a short summary of the work to be presented in the
 %% article.
 \begin{abstract}
-Finding relevant thesis literature in the CSPC Library has long been hindered by restrictive search systems and limited access to physical documents. This study addresses these challenges by developing a Retrieval-Augmented Generation (RAG) chatbot that enables users to search for undergraduate theses using natural language queries, topics, and keywords. The system preprocesses and chunks over 290 thesis PDFs, generates semantic embeddings with all-MiniLM-L6-v2, and stores them in a FAISS vector database. User queries are semantically matched to relevant thesis segments, and responses are generated using the Gemini 2.5-flash model, ensuring grounded and contextually accurate answers. The RAGAS framework was employed to evaluate performance. The model achieved a Context Precision of 0.9167, Context Recall of 0.8711, Answer Relevancy of 0.8625, and Faithfulness of 0.9179. Additionally, user-centered evaluation yielded a weighted mean of 4.5 for response quality and 4.3 for effectiveness and usability, both interpreted as "Strongly Agree". These promising results demonstrate that the chatbot significantly improves literature search efficiency, accessibility, and user satisfaction compared to traditional systems. The work highlights the impact of data quality and query clarity on retrieval accuracy. This research advances AI-driven information retrieval in academic settings, revolutionizing thesis discovery and supporting the needs of students and researchers.
+Finding relevant thesis literature in the CSPC Library has long been hindered by restrictive search systems and limited access to physical documents. This study addresses these challenges by developing a Retrieval-Augmented Generation (RAG) chatbot that enables users to search for undergraduate theses using natural language queries, topics, and keywords. The system preprocesses and chunks over 290 thesis PDFs, generates semantic embeddings with all-MiniLM-L6-v2, and stores them in a FAISS vector database. User queries are semantically matched to relevant thesis segments, and responses are generated using the Gemini 2.5-flash model, ensuring grounded and contextually accurate answers. The RAGAS framework was employed to evaluate performance. The model achieved a Context Precision of 0.9167, Context Recall of 0.8711, Answer Relevancy of 0.8625, and Faithfulness of 0.9179. Additionally, user-centered evaluation yielded a weighted mean of 4.5 for response quality and 4.3 for effectiveness and usability, both interpreted as ”Strongly Agree”. These promising results demonstrate that the chatbot significantly improves literature search efficiency, accessibility, and user satisfaction compared to traditional search systems. The work highlights the impact of data quality and query clarity on retrieval accuracy. This research advances AI-driven information retrieval in academic settings, revolutionizing thesis discovery and supporting the needs of students and researchers.
 \end{abstract}
 
 %%
@@ -428,7 +428,7 @@ where:
 The conceptual framework of this study is illustrated in Figure \ref{fig:conceptual_framework}.
 \begin{figure}[h]
    \centering
-    \includegraphics[width=0.40\textwidth]{figures_/framework.png}
+    \includegraphics[width=0.50\textwidth]{figures/framework.png}
     \caption{Conceptual Framework}
    \label{fig:conceptual_framework}
 
@@ -470,7 +470,7 @@ This chapter discusses the results and evaluation of the RAG chatbot developed f
 
    \begin{figure}[h]
     \centering
-    \includegraphics[width=0.4\textwidth]{figures_/virgo_sample_query.jpg}
+    \includegraphics[width=0.4\textwidth]{figures/virgo_sample_query.jpg}
     \caption{Screenshot of Query and Retrieved Output}
     \label{fig:sample_query_output}
 \end{figure}
@@ -492,12 +492,12 @@ Moreover, the output also includes the created citations that shows the author's
 
 \begin{figure}[h]
    \centering
-    \includegraphics[width=0.4\textwidth]{figures_/adalv4.jpg}
+    \includegraphics[width=0.4\textwidth]{figures/virgo_bomb_query.jpg}
     \caption{User Interface}
    \label{fig:unique_label}
 \end{figure}
 
-In Figure \ref{fig:unique_label}, the system was deployed to the cloud to ensure accessibility for users across various locations. The interface supports conversational exploration with session-based history and safety filters for disallowed queries. Generated responses appear as Markdown with citations and structured text. When queries violate safety parameters, clear warnings are displayed. Deterministic settings improve consistency and build user trust.
+In Figure \ref{fig:unique_label}, the system was deployed to the cloud to ensure accessibility for users across various locations. The interface supports conversational exploration with session-based history and safety filters for disallowed queries. Generated responses appear as Markdown with citations and structured text. When queries violate safety parameters, clear warnings are displayed. Deterministic settings improve consistency and build user trust. 
 
 \subsection{Model Evaluation}
 This section reveals the evaluation result of the RAG chatbot using the four metrics from RAGAS including Answer Relevancy, Context Precision, Context Recall, and Faithfulness. Each metrics captures the system accuracy, coverage, and grounding of responses. Another method applied for evaluation is the user-centered evaluation specifically using a 5-point Likert scale questionnaire.
@@ -534,7 +534,7 @@ The bar chart in Figure \ref{fig:rag_bar_chart} illustrates the performance of t
 
 \begin{figure}[H]
    \centering
-   \includegraphics[width=0.4\textwidth]{figures_/RAG_bar_chart_result.png}
+   \includegraphics[width=0.4\textwidth]{figures/RAG_bar_chart_result.png}
    \caption{Bar Chart of RAG System Evaluation Result}
    \label{fig:rag_bar_chart}
 \end{figure}
@@ -614,21 +614,21 @@ System performance was evaluated using both automated and user-centered approach
 
 
 \begin{acks}
-     The researchers would like to express their heartfelt gratitude to everyone who contributed to the completion of this study.
+The researchers would like to express their heartfelt gratitude to everyone who contributed to the completion of this study.
 
-   First, we thank \textbf{God Almighty} for His unfailing love, guidance, and blessings throughout our academic journey.
+First, we thank \textbf{God Almighty} for His unfailing love, guidance, and blessings throughout our academic journey.
 
-   We extend our deepest appreciation to \textbf{Rosel O. Onesa}, OIC Dean of the College of Computer Studies and our Thesis Adviser, for her invaluable guidance, recommendation and encouragement.
-   
-   We also thank \textbf{Allan Ibo Jr.}, our Consultant, for sharing his expertise and providing constructive insights for our systems and studies.
+We extend our deepest appreciation to \textbf{Ma'am Rosel O. Onesa}, OIC Dean of the College of Computer Studies and our Thesis Adviser, for her invaluable guidance, recommendation and encouragement. We also thank \textbf{Sir Allan O. Ibo Jr.}, our Consultant, for sharing his expertise and providing constructive insights.
 
-   Our gratitude goes to \textbf{Ma. Allaine C. Agna}, our Grammarian, for reviewing our manuscript and helping refine our writing.
+Our gratitude goes to \textbf{Ma'am Ma. Allaine C. Agna}, our Grammarian, for reviewing our manuscript and helping refine our writing.
 
-   To \textbf{Joseph Jessie S. O\~nate}, our Panel Chairman, thank you for your thoughtful feedback, insights, and professional guidance during the evaluation of our study.
+To \textbf{Sir Joseph Jessie S. O\~nate}, our Panel Chairman, thank you for your thoughtful feedback, insights, and professional guidance during the evaluation of our study.
 
-   We likewise extend our gratitude to \textbf{Tiffany Lyn O. Pandes}, one of our Panel Members and also our Subject Adviser, for her valuable comments, continuous support, reminders, and academic guidance that greatly assisted us throughout the semester, and to \textbf{Kaela Marie N. Fortuno}, our second Panel Member, for her helpful recommendations and encouragement that strengthened the overall outcome of this research.
+We likewise extend our gratitude to \textbf{Ma'am Tiffany Lyn O. Pandes}, one of our Panel Members and also our Subject Adviser, for her valuable comments, continuous support, reminders, and academic guidance that greatly assisted us throughout the semester, and to \textbf{Ma'am Kaela Marie N. Fortuno}, our second Panel Member, for her helpful recommendations and encouragement that strengthened the overall outcome of this research.
 
-   Lastly, we give our deepest appreciation to our families, \textbf{Mr.\ and Mrs.\ Aurellano}, \textbf{Mr.\ and Mrs.\ Avila}, and \textbf{Mr.\ and Mrs.\ Calingacion and Librando} whose love, understanding, moral support, and financial assistance have been our source of strength throughout this journey. This accomplishment would not have been possible without your unwavering support.
+
+Lastly, we give our deepest appreciation to our families, \textbf{Mr.\ and Mrs.\ Aurellano}, \textbf{Mr.\ and Mrs.\ Avila}, and \textbf{Mr.\ and Mrs.\ Calingacion and Librando} whose love, understanding, moral support, and financial assistance have been our source of strength throughout this journey. This accomplishment would not have been possible without your unwavering support.
+
 
 \bigbreak
    To all of you, Thank you very much.
