@@ -727,7 +727,7 @@
    \geometry{twoside=true, head=13pt,
      paperwidth=8.5in, paperheight=11in,
      includeheadfoot, columnsep=2pc,
-     top=57pt, bottom=73pt, inner=54pt, outer=54pt,
+     top=7pt, bottom=20pt, inner=54pt, outer=54pt,
      marginparwidth=2pc,heightrounded
      }%
 \or % siggraph
@@ -764,7 +764,7 @@
    \geometry{twoside=true, head=13pt,
      paperwidth=8.5in, paperheight=11in,
      includeheadfoot, columnsep=2pc,
-     top=57pt, bottom=73pt, inner=54pt, outer=54pt,
+     top=7pt, bottom=73pt, inner=54pt, outer=54pt,
      marginparwidth=2pc,heightrounded
      }%
 \or % acmcp
@@ -2877,7 +2877,7 @@
     \if@ACM@journal
        \everypar{\setbox\z@\lastbox\everypar{}}\small
     \else
-      \section*{\abstractname}%
+      \section*{\MakeUppercase{\abstractname}}%
     \fi
    \ignorespaces\@abstract\par}%
   \fi\egroup}

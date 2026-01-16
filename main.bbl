@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{60}
+\begin{thebibliography}{38}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -37,18 +37,6 @@
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
 
-\bibitem[Aboelmaged et~al\mbox{.}(2024)]%
-        {aboelmaged2024conversational}
-\bibfield{author}{\bibinfo{person}{Mohamed Aboelmaged}, \bibinfo{person}{Shaker
-  Bani-Melhem}, \bibinfo{person}{Mohd Ahmad Al-Hawari}, {and}
-  \bibinfo{person}{Ifzal Ahmad}.} \bibinfo{year}{2024}\natexlab{}.
-\newblock \showarticletitle{Conversational AI Chatbots in library research: An
-  integrative review and future research agenda}.
-\newblock \bibinfo{journal}{\emph{Journal of Librarianship and Information
-  Science}} (\bibinfo{year}{2024}), \bibinfo{pages}{---4440}.
-\newblock
-
-
 \bibitem[Achiam et~al\mbox{.}(2023)]%
         {achiam2023gpt}
 \bibfield{author}{\bibinfo{person}{Josh Achiam}, \bibinfo{person}{Steven
@@ -61,35 +49,6 @@
 \newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:2303.08774}}
   (\bibinfo{year}{2023}).
 \newblock
-
-
-\bibitem[Adhikari and Agarwal(2024)]%
-        {adhikari2024comparative}
-\bibfield{author}{\bibinfo{person}{Narayan~S. Adhikari} {and}
-  \bibinfo{person}{Shradha Agarwal}.} \bibinfo{year}{2024}\natexlab{}.
-\newblock \bibinfo{title}{Comparative Study of PDF Parsing Tools Across Diverse
-  Document Categories}.
-\newblock \bibinfo{howpublished}{JadooAI, Sacramento, CA, USA; Missouri
-  University of Science and Technology, USA}.
-\newblock
-\showeprint[arxiv]{2410.09871v2}
-\urldef\tempurl%
-\url{https://arxiv.org/abs/2410.09871v2}
-\showURL{%
-\tempurl}
-
-
-\bibitem[Allu et~al\mbox{.}(2024)]%
-        {allu2024beyond}
-\bibfield{author}{\bibinfo{person}{U. Allu}, \bibinfo{person}{B. Ahmed}, {and}
-  \bibinfo{person}{V. Tripathi}.} \bibinfo{year}{2024}\natexlab{}.
-\newblock \bibinfo{title}{Beyond Extraction: Contextualising Tabular Data for
-  Efficient Summarisation by Language Models}.
-\newblock
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.36227/techrxiv.170792474.42605726/v1}
-\showDOI{\tempurl}
 
 
 \bibitem[Ameli et~al\mbox{.}(2024)]%
@@ -163,46 +122,6 @@
 \newblock
 
 
-\bibitem[Bommasani et~al\mbox{.}(2021)]%
-        {bommasani2021opportunities}
-\bibfield{author}{\bibinfo{person}{Rishi Bommasani}, \bibinfo{person}{Drew~A
-  Hudson}, \bibinfo{person}{Ehsan Adeli}, \bibinfo{person}{Russ Altman},
-  \bibinfo{person}{Simran Arora}, \bibinfo{person}{Sydney von Arx},
-  \bibinfo{person}{Michael~S Bernstein}, \bibinfo{person}{Jeannette Bohg},
-  \bibinfo{person}{Antoine Bosselut}, {and} \bibinfo{person}{Emma Brunskill}.}
-  \bibinfo{year}{2021}\natexlab{}.
-\newblock \showarticletitle{On the opportunities and risks of foundation
-  models}.
-\newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:2108.07258}}
-  (\bibinfo{year}{2021}).
-\newblock
-
-
-\bibitem[Bozkurt(2024)]%
-        {bozkurt2024genai}
-\bibfield{author}{\bibinfo{person}{Aras Bozkurt}.}
-  \bibinfo{year}{2024}\natexlab{}.
-\newblock \bibinfo{title}{GenAI et al. Cocreation, authorship, ownership,
-  academic ethics and integrity in a time of generative AI}.
-\newblock , \bibinfo{numpages}{10}~pages.
-\newblock
-
-
-\bibitem[Chen et~al\mbox{.}(2024)]%
-        {chen2024benchmarking}
-\bibfield{author}{\bibinfo{person}{Jiashu Chen}, \bibinfo{person}{Hongyin Lin},
-  \bibinfo{person}{Xu Han}, {and} \bibinfo{person}{Le Sun}.}
-  \bibinfo{year}{2024}\natexlab{}.
-\newblock \showarticletitle{Benchmarking Large Language Models in
-  Retrieval-Augmented Generation}. In \bibinfo{booktitle}{\emph{Proceedings of
-  the AAAI Conference on Artificial Intelligence}}, Vol.~\bibinfo{volume}{38}.
-  \bibinfo{pages}{17754--17762}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1609/aaai.v38i16.29728}
-\showDOI{\tempurl}
-
-
 \bibitem[Chen et~al\mbox{.}(2021)]%
         {chen2021evaluating}
 \bibfield{author}{\bibinfo{person}{Mark Chen} {et~al\mbox{.}}}
@@ -224,20 +143,8 @@
 \newblock
 
 
-\bibitem[Chow et~al\mbox{.}(2023)]%
-        {chow2023developing}
-\bibfield{author}{\bibinfo{person}{James~CL Chow}, \bibinfo{person}{Valerie
-  Wong}, \bibinfo{person}{Leslie Sanders}, {and} \bibinfo{person}{Kay Li}.}
-  \bibinfo{year}{2023}\natexlab{}.
-\newblock \showarticletitle{Developing an AI-assisted educational chatbot for
-  radiotherapy using the IBM Watson assistant platform}. In
-  \bibinfo{booktitle}{\emph{Healthcare}}, Vol.~\bibinfo{volume}{11}. MDPI,
-  \bibinfo{pages}{2417}.
-\newblock
-
-
 \bibitem[Comanici et~al\mbox{.}(2025)]%
-        {comanici2025gemini}
+        {comanici2025gem}
 \bibfield{author}{\bibinfo{person}{Gheorghe Comanici}, \bibinfo{person}{Eric
   Bieber}, \bibinfo{person}{Mike Schaekermann}, \bibinfo{person}{Ice Pasupat},
   \bibinfo{person}{Noveen Sachdeva}, \bibinfo{person}{Inderjit Dhillon},
@@ -250,21 +157,10 @@
 \newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:2507.06261}}
   (\bibinfo{year}{2025}).
 \newblock
-
-
-\bibitem[Deepak et~al\mbox{.}(2025)]%
-        {deepak2025langchain}
-\bibfield{author}{\bibinfo{person}{M. Deepak}, \bibinfo{person}{A. Anusha},
-  \bibinfo{person}{P. Phanivighnesh}, {and} \bibinfo{person}{G. Sreenivasulu}.}
-  \bibinfo{year}{2025}\natexlab{}.
-\newblock \showarticletitle{Langchain-chat with My PDF}.
-\newblock \bibinfo{journal}{\emph{International Journal of Scientific Research
-  in Engineering and Management}} \bibinfo{volume}{09}, \bibinfo{number}{03}
-  (\bibinfo{year}{2025}), \bibinfo{pages}{1--9}.
-\newblock
 \urldef\tempurl%
-\url{https://doi.org/10.55041/ijsrem42403}
-\showDOI{\tempurl}
+\url{https://arxiv.org/abs/2507.06261}
+\showURL{%
+\tempurl}
 
 
 \bibitem[F{\o}lstad et~al\mbox{.}(2021)]%
@@ -364,17 +260,6 @@
 \newblock
 
 
-\bibitem[Khalifa and Albadawy(2024)]%
-        {khalifa2024using}
-\bibfield{author}{\bibinfo{person}{Mohamed Khalifa} {and} \bibinfo{person}{Mona
-  Albadawy}.} \bibinfo{year}{2024}\natexlab{}.
-\newblock \showarticletitle{Using artificial intelligence in academic writing
-  and research: An essential productivity tool}.
-\newblock \bibinfo{journal}{\emph{Computer Methods and Programs in Biomedicine
-  Update}} (\bibinfo{year}{2024}), \bibinfo{pages}{100145}.
-\newblock
-
-
 \bibitem[Khraisha et~al\mbox{.}(2024)]%
         {khraisha2024can}
 \bibfield{author}{\bibinfo{person}{Qais Khraisha}, \bibinfo{person}{Stefaan
@@ -390,19 +275,6 @@
 \urldef\tempurl%
 \url{https://doi.org/10.1002/jrsm.1715}
 \showDOI{\tempurl}
-
-
-\bibitem[Klang et~al\mbox{.}(2024)]%
-        {klang2024advancing}
-\bibfield{author}{\bibinfo{person}{Eyal Klang}, \bibinfo{person}{Lee Alper},
-  \bibinfo{person}{Vera Sorin}, \bibinfo{person}{Yiftach Barash},
-  \bibinfo{person}{Girish~N Nadkarni}, {and} \bibinfo{person}{Eyal
-  Zimlichman}.} \bibinfo{year}{2024}\natexlab{}.
-\newblock \showarticletitle{Advancing radiology practice and research:
-  harnessing the potential of large language models amidst imperfections}.
-\newblock \bibinfo{journal}{\emph{BJR| Open}} \bibinfo{volume}{6},
-  \bibinfo{number}{1} (\bibinfo{year}{2024}), \bibinfo{pages}{tzae022}.
-\newblock
 
 
 \bibitem[Lagas and Isip(2023)]%
@@ -470,36 +342,14 @@
 \newblock
 
 
-\bibitem[Li et~al\mbox{.}(2023)]%
-        {li2023extracting}
-\bibfield{author}{\bibinfo{person}{S. Li}, \bibinfo{person}{Y. Zhang},
-  \bibinfo{person}{Z. Fang}, \bibinfo{person}{K. Meng}, \bibinfo{person}{R.
-  Tian}, \bibinfo{person}{H. He}, {and} \bibinfo{person}{S. Sun}.}
-  \bibinfo{year}{2023}\natexlab{}.
-\newblock \showarticletitle{Extracting the synthetic route of Pd-based
-  catalysts in methanol steam reforming from the scientific literature}.
-\newblock \bibinfo{journal}{\emph{Journal of Chemical Information and
-  Modeling}} \bibinfo{volume}{63}, \bibinfo{number}{20} (\bibinfo{year}{2023}),
-  \bibinfo{pages}{6249--6260}.
+\bibitem[Likert(1932)]%
+        {likert1932technique}
+\bibfield{author}{\bibinfo{person}{Rensis Likert}.}
+  \bibinfo{year}{1932}\natexlab{}.
+\newblock \showarticletitle{A technique for the measurement of attitudes.}
+\newblock \bibinfo{journal}{\emph{Archives of psychology}}
+  (\bibinfo{year}{1932}).
 \newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1021/acs.jcim.3c01442}
-\showDOI{\tempurl}
-
-
-\bibitem[Lin et~al\mbox{.}(2021)]%
-        {lin2021bert}
-\bibfield{author}{\bibinfo{person}{Jimmy Lin}, \bibinfo{person}{Ma Ma}, {and}
-  \bibinfo{person}{Andrew Yates}.} \bibinfo{year}{2021}\natexlab{}.
-\newblock \showarticletitle{Pretrained Transformers for Text Ranking: BERT and
-  Beyond}. In \bibinfo{booktitle}{\emph{Proceedings of the 14th ACM
-  International Conference on Web Search and Data Mining (WSDM '21)}}.
-  \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY},
-  \bibinfo{pages}{1154--1156}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1145/3437963.3441817}
-\showDOI{\tempurl}
 
 
 \bibitem[Lin et~al\mbox{.}(2024)]%
@@ -533,35 +383,6 @@
 \newblock \showarticletitle{Information retrieval meets large language models}.
   In \bibinfo{booktitle}{\emph{Companion Proceedings of the ACM Web Conference
   2024}}. \bibinfo{pages}{1586--1589}.
-\newblock
-
-
-\bibitem[Lukka(2003)]%
-        {lukka2003cons}
-\bibfield{author}{\bibinfo{person}{Kari Lukka}.}
-  \bibinfo{year}{2003}\natexlab{}.
-\newblock \bibinfo{booktitle}{\emph{The Constructive Research Approach}}.
-\newblock \bibinfo{publisher}{Publications of the Turku School of Economics and
-  Business Administration}.
-\newblock
-\urldef\tempurl%
-\url{https://www.researchgate.net/publication/247817908_The_Constructive_Research_Approach}
-\showURL{%
-\tempurl}
-\newblock
-\shownote{Accessed: 2025-05-26}.
-
-
-\bibitem[Mahboub et~al\mbox{.}(2024)]%
-        {mahboub2024evaluation}
-\bibfield{author}{\bibinfo{person}{Ali Mahboub}, \bibinfo{person}{Muhy~Eddin
-  Za'ter}, \bibinfo{person}{Bashar Al-Rfooh}, \bibinfo{person}{Yazan Estaitia},
-  \bibinfo{person}{Adnan Jaljuli}, {and} \bibinfo{person}{Asma Hakouz}.}
-  \bibinfo{year}{2024}\natexlab{}.
-\newblock \showarticletitle{Evaluation of semantic search and its role in
-  retrieved-augmented-generation (rag) for arabic language}.
-\newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:2403.18350}}
-  (\bibinfo{year}{2024}).
 \newblock
 
 
@@ -602,21 +423,6 @@
 \newblock
 
 
-\bibitem[OUBAH and ŞENER(2024)]%
-        {oubah2024advanced}
-\bibfield{author}{\bibinfo{person}{I. OUBAH} {and} \bibinfo{person}{S.
-  ŞENER}.} \bibinfo{year}{2024}\natexlab{}.
-\newblock \showarticletitle{Advanced retrieval augmented generation:
-  multilingual semantic retrieval across document types by finetuning
-  transformer based language models and OCR integration}.
-\newblock \bibinfo{journal}{\emph{Engineering and Technology Journal}}
-  \bibinfo{volume}{09}, \bibinfo{number}{07} (\bibinfo{year}{2024}).
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.47191/etj/v9i07.09}
-\showDOI{\tempurl}
-
-
 \bibitem[Prabhulal(2025)]%
         {prabhulal2025ragpipeline}
 \bibfield{author}{\bibinfo{person}{Arjun Prabhulal}.}
@@ -643,18 +449,6 @@
 \newblock
 
 
-\bibitem[Ram{\'\i}rez(2024)]%
-        {ramirez2024natural}
-\bibfield{author}{\bibinfo{person}{Jos{\'e} Gabriel~Carrasco Ram{\'\i}rez}.}
-  \bibinfo{year}{2024}\natexlab{}.
-\newblock \showarticletitle{Natural language processing advancements: Breaking
-  barriers in human-computer interaction}.
-\newblock \bibinfo{journal}{\emph{Journal of Artificial Intelligence General
-  science (JAIGS) ISSN: 3006-4023}} \bibinfo{volume}{3}, \bibinfo{number}{1}
-  (\bibinfo{year}{2024}), \bibinfo{pages}{31--39}.
-\newblock
-
-
 \bibitem[Roychowdhury et~al\mbox{.}(2024)]%
         {roychowdhury2024evaluation}
 \bibfield{author}{\bibinfo{person}{S. Roychowdhury}, \bibinfo{person}{S.
@@ -672,41 +466,17 @@
 \tempurl}
 
 
-\bibitem[Ryu et~al\mbox{.}(2023)]%
-        {ryu2023retrieval}
-\bibfield{author}{\bibinfo{person}{C. Ryu}, \bibinfo{person}{S. Lee},
-  \bibinfo{person}{S. Pang}, \bibinfo{person}{C. Choi}, \bibinfo{person}{H.
-  Choi}, \bibinfo{person}{M. Min}, {and} \bibinfo{person}{J. Sohn}.}
-  \bibinfo{year}{2023}\natexlab{}.
-\newblock \showarticletitle{Retrieval-based Evaluation for LLMs}. In
-  \bibinfo{booktitle}{\emph{Proceedings of the 1st Workshop on Neural and
-  Learning-based Natural Language Processing (NLLP)}}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.18653/v1/2023.nllp-1.13}
-\showDOI{\tempurl}
-
-
-\bibitem[Sagi(2024)]%
-        {sagi2024genai}
-\bibfield{author}{\bibinfo{person}{Sriramaraju Sagi}.}
-  \bibinfo{year}{2024}\natexlab{}.
-\newblock \showarticletitle{GENAI: RAG USE CASES WITH VECTOR DB TO SOLVE THE
-  LIMITATIONS OF LLMS}.
-\newblock \bibinfo{journal}{\emph{INTERNATIONAL JOURNAL OF COMPUTER ENGINEERING
-  \& TECHNOLOGY}}  \bibinfo{volume}{15} (\bibinfo{date}{04}
-  \bibinfo{year}{2024}), \bibinfo{pages}{56--62}.
-\newblock
-
-
-\bibitem[Sallam(2023)]%
-        {sallam2023chatgpt}
-\bibfield{author}{\bibinfo{person}{Malik Sallam}.}
-  \bibinfo{year}{2023}\natexlab{}.
-\newblock \showarticletitle{ChatGPT utility in healthcare education, research,
-  and practice: systematic review on the promising perspectives and valid
-  concerns}. In \bibinfo{booktitle}{\emph{Healthcare}},
-  Vol.~\bibinfo{volume}{11}. MDPI, \bibinfo{pages}{887}.
+\bibitem[Rukundo et~al\mbox{.}(2016)]%
+        {rukundo}
+\bibfield{author}{\bibinfo{person}{Annamaria Rukundo},
+  \bibinfo{person}{Mathias~M Muwonge}, \bibinfo{person}{Danny Mugisha},
+  \bibinfo{person}{Dickens Aturwanaho}, \bibinfo{person}{Arabat Kasangaki},
+  {and} \bibinfo{person}{Godfrey~S Bbosa}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Knowledge, attitudes and perceptions of secondary
+  school teenagers towards HIV transmission and prevention in rural and urban
+  areas of central Uganda}.
+\newblock \bibinfo{journal}{\emph{Health}} \bibinfo{volume}{8},
+  \bibinfo{number}{10} (\bibinfo{year}{2016}), \bibinfo{pages}{68375}.
 \newblock
 
 
@@ -773,76 +543,18 @@
 \tempurl}
 
 
-\bibitem[Song et~al\mbox{.}(2024)]%
-        {song2024travelrag}
-\bibfield{author}{\bibinfo{person}{S. Song}, \bibinfo{person}{C. Yang},
-  \bibinfo{person}{X. Li}, \bibinfo{person}{H. Shang}, \bibinfo{person}{Z. Li},
-  {and} \bibinfo{person}{Y. Chang}.} \bibinfo{year}{2024}\natexlab{}.
-\newblock \showarticletitle{TravelRAG: A Tourist Attraction Retrieval Framework
-  Based on Multi-layer Knowledge Graph}.
-\newblock \bibinfo{journal}{\emph{ISPRS International Journal of
-  Geo-Information}} \bibinfo{volume}{13}, \bibinfo{number}{11}
-  (\bibinfo{year}{2024}), \bibinfo{pages}{414}.
+\bibitem[y~Arcas(2022)]%
+        {daed_a_01909}
+\bibfield{author}{\bibinfo{person}{Blaise~Agüera y Arcas}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Do Large Language Models Understand Us?}
+\newblock \bibinfo{journal}{\emph{Daedalus}} \bibinfo{volume}{151},
+  \bibinfo{number}{2} (\bibinfo{year}{2022}), \bibinfo{pages}{183--197}.
 \newblock
+\showISSN{0011-5266}
 \urldef\tempurl%
-\url{https://doi.org/10.3390/ijgi13110414}
+\url{https://doi.org/10.1162/daed_a_01909}
 \showDOI{\tempurl}
-
-
-\bibitem[Strich(2024)]%
-        {strich2024improving}
-\bibfield{author}{\bibinfo{person}{Jan Strich}.}
-  \bibinfo{year}{2024}\natexlab{}.
-\newblock \emph{\bibinfo{title}{Improving Large Language Models in Repository
-  Level Programming Through Self-Alignment and Retrieval-Augmented
-  Generation}}.
-\newblock \bibinfo{thesistype}{Ph.\,D. Dissertation}.
-  \bibinfo{school}{Universit{\"a}t Hamburg}.
-\newblock
-
-
-\bibitem[Thapa et~al\mbox{.}(2022)]%
-        {thapa2022splitfed}
-\bibfield{author}{\bibinfo{person}{Chhagyani Thapa}, \bibinfo{person}{Mahendran
-  Chamikara}, \bibinfo{person}{Seyit Camtepe}, {and} \bibinfo{person}{Lichao
-  Sun}.} \bibinfo{year}{2022}\natexlab{}.
-\newblock \showarticletitle{Splitfed: When federated learning meets split
-  learning}. In \bibinfo{booktitle}{\emph{Proceedings of the AAAI Conference on
-  Artificial Intelligence}}, Vol.~\bibinfo{volume}{36}.
-  \bibinfo{pages}{8485--8493}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1609/aaai.v36i8.20825}
-\showDOI{\tempurl}
-
-
-\bibitem[Thomo(2024)]%
-        {thomo2024pubmed}
-\bibfield{author}{\bibinfo{person}{Alex Thomo}.}
-  \bibinfo{year}{2024}\natexlab{}.
-\newblock \showarticletitle{PubMed retrieval with RAG techniques}.
-\newblock \bibinfo{journal}{\emph{Studies in Health Technology and
-  Informatics}} (\bibinfo{year}{2024}).
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.3233/SHTI240498}
-\showDOI{\tempurl}
-
-
-\bibitem[Wang and Chau(2024)]%
-        {wang2024mememo}
-\bibfield{author}{\bibinfo{person}{Zijie~J Wang} {and}
-  \bibinfo{person}{Duen~Horng Chau}.} \bibinfo{year}{2024}\natexlab{}.
-\newblock \showarticletitle{MeMemo: On-device Retrieval Augmentation for
-  Private and Personalized Text Generation}. In
-  \bibinfo{booktitle}{\emph{Proceedings of the 47th International ACM SIGIR
-  Conference on Research and Development in Information Retrieval}}.
-  \bibinfo{pages}{2765--2770}.
-\newblock
-\urldef\tempurl%
-\url{https://arxiv.org/abs/2407.01972}
-\showURL{%
-\tempurl}
 
 
 \bibitem[Yalamanchili et~al\mbox{.}(2024)]%
@@ -876,18 +588,6 @@
 \urldef\tempurl%
 \url{https://doi.org/10.1002/hcs2.61}
 \showDOI{\tempurl}
-
-
-\bibitem[Zhang et~al\mbox{.}(2023)]%
-        {zhang2023automated}
-\bibfield{author}{\bibinfo{person}{L. Zhang}, \bibinfo{person}{X. Chen}, {and}
-  \bibinfo{person}{M. Li}.} \bibinfo{year}{2023}\natexlab{}.
-\newblock \showarticletitle{Automated Document Ingestion for Academic Knowledge
-  Repositories}.
-\newblock \bibinfo{journal}{\emph{Journal of Digital Libraries}}
-  \bibinfo{volume}{24}, \bibinfo{number}{1} (\bibinfo{year}{2023}),
-  \bibinfo{pages}{12--26}.
-\newblock
 
 
 \bibitem[Zhang et~al\mbox{.}(2024)]%
